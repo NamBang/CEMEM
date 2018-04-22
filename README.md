@@ -1,9 +1,15 @@
-
+﻿
 # Nhập Môn Công Nghệ Phần Mềm - SE104.I23
 # Đề Tài: Phát triển phần mềm quản lý Phòng mạch tư
 	-Phần mềm giúp người sử dụng dễ dàng thao tác hay tra cứu bệnh nhân như : 
 		+Lập hóa đơn,phiếu khám,báo cáo thu chi...
-		+Tra cứu thông tin bệnh nhân...
+		+Tra cứu thông tin bệnh nhân....
+# Cài Đặt
+	Công nghệ sử dụng
+		+ Hệ Điều Hành Windows
+		+ SQL sever
+		+ Visual studio	
+		+ Ngồn ngữ Lập trình: C#
 # Quá Trình
 	1.Hiện trạng:
 			1.1 Tổ chức
@@ -18,13 +24,7 @@
 			3.2 Thiết kế xử lý
 			3.3 Thiết kế dữ liệu
 			3.4 Thiế kế kiến trúc
-	4. Cài Đặt:	
-			4.1 Công nghệ sử dụng
-				+ Hệ Điều Hành Windows
-				+ SQL sever
-				+ Visual studio	
-				+ Ngồn ngữ Lập trình: C#
-			4.2 Giải pháp khi cài đặt
+	
 
 # Tên Nhóm: CEMEM
 # Thành Viên:
