@@ -10,6 +10,7 @@
 		+ SQL sever
 		+ Visual studio	
 		+ Ngồn ngữ Lập trình: C#
+
 # Quá Trình
 	1.Hiện trạng:
 			1.1 Tổ chức
