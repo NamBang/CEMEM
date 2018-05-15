@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLPM4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Benh">
+    <Key>
+      <PropertyRef Name="MaBenh" />
+    </Key>
+    <Property Name="MaBenh" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="TenBenh" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BenhNhan">
+    <Key>
+      <PropertyRef Name="MaBN" />
+    </Key>
+    <Property Name="MaBN" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaPhieuKhamBenh" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="HoVaTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="NamSinh" Type="int" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTPhieuKB">
+    <Key>
+      <PropertyRef Name="MaCT" />
+    </Key>
+    <Property Name="MaCT" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaThuoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="CachDung" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Donvi" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="gia" Type="float" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="TienKham" Type="float" Nullable="false" />
+    <Property Name="TienThuoc" Type="float" Nullable="false" />
+    <Property Name="TongTien" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhieuKB">
+    <Key>
+      <PropertyRef Name="MaPKB" />
+    </Key>
+    <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MABN" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaBenh" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaHD" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="TrieuChung" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgayKham" Type="date" />
+    <Property Name="TienKham" Type="float" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tenhienthi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TYPE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Thuoc">
+    <Key>
+      <PropertyRef Name="MaThuoc" />
+    </Key>
+    <Property Name="MaThuoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="TenThuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CachDung" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DonVi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DonGia" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="Cont3">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="PhieuKB">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPhieuKB__MaPKB__182C9B23">
+    <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="1" />
+    <End Role="CTPhieuKB" Type="Self.CTPhieuKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuKB">
+        <PropertyRef Name="MaPKB" />
+      </Principal>
+      <Dependent Role="CTPhieuKB">
+        <PropertyRef Name="MaPKB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPhieuKB__MaThu__1920BF5C">
+    <End Role="Thuoc" Type="Self.Thuoc" Multiplicity="1" />
+    <End Role="CTPhieuKB" Type="Self.CTPhieuKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thuoc">
+        <PropertyRef Name="MaThuoc" />
+      </Principal>
+      <Dependent Role="CTPhieuKB">
+        <PropertyRef Name="MaThuoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HoaDon__MaPKB__20C1E124">
+    <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuKB">
+        <PropertyRef Name="MaPKB" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaPKB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuKB__MaBenh__117F9D94">
+    <End Role="Benh" Type="Self.Benh" Multiplicity="1" />
+    <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Benh">
+        <PropertyRef Name="MaBenh" />
+      </Principal>
+      <Dependent Role="PhieuKB">
+        <PropertyRef Name="MaBenh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuKB__MABN__1273C1CD">
+    <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+    <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BenhNhan">
+        <PropertyRef Name="MaBN" />
+      </Principal>
+      <Dependent Role="PhieuKB">
+        <PropertyRef Name="MABN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLPM4ModelStoreContainer">
+    <EntitySet Name="Benh" EntityType="Self.Benh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BenhNhan" EntityType="Self.BenhNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPhieuKB" EntityType="Self.CTPhieuKB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuKB" EntityType="Self.PhieuKB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Thuoc" EntityType="Self.Thuoc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Cont3" Association="Self.Cont3">
+      <End Role="HoaDon" EntitySet="HoaDon" />
+      <End Role="PhieuKB" EntitySet="PhieuKB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPhieuKB__MaPKB__182C9B23" Association="Self.FK__CTPhieuKB__MaPKB__182C9B23">
+      <End Role="PhieuKB" EntitySet="PhieuKB" />
+      <End Role="CTPhieuKB" EntitySet="CTPhieuKB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPhieuKB__MaThu__1920BF5C" Association="Self.FK__CTPhieuKB__MaThu__1920BF5C">
+      <End Role="Thuoc" EntitySet="Thuoc" />
+      <End Role="CTPhieuKB" EntitySet="CTPhieuKB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HoaDon__MaPKB__20C1E124" Association="Self.FK__HoaDon__MaPKB__20C1E124">
+      <End Role="PhieuKB" EntitySet="PhieuKB" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuKB__MaBenh__117F9D94" Association="Self.FK__PhieuKB__MaBenh__117F9D94">
+      <End Role="Benh" EntitySet="Benh" />
+      <End Role="PhieuKB" EntitySet="PhieuKB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuKB__MABN__1273C1CD" Association="Self.FK__PhieuKB__MABN__1273C1CD">
+      <End Role="BenhNhan" EntitySet="BenhNhan" />
+      <End Role="PhieuKB" EntitySet="PhieuKB" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

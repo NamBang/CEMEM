@@ -1,0 +1,189 @@
+﻿<Window x:Class="DoAnQLPM.StoreWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StoreWindow" Height="600" Width="800"
+        
+           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        
+        >
+
+    <Grid VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Margin="5">
+            <WrapPanel>
+                <TextBox Text="{Binding MaThuoc}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã Thuốc"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <TextBox Text="{Binding TenThuoc}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên Thuốc"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <ComboBox Margin="5 5 15 5" ItemsSource="{Binding DonVi}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Đơn Vị"  IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                <TextBox Text="{Binding SoLuong}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số Lượng"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
+                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"></Button>
+                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"></Button>
+
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="2" Margin="5">
+            <materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã thuốc" DisplayMemberBinding="{Binding MaThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Tên thuốc" DisplayMemberBinding="{Binding TenThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Đơn vị" DisplayMemberBinding="{Binding DonVi}"></GridViewColumn>
+                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}"></GridViewColumn>
+                          
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+        
+        
+        <Grid Grid.Row="0" Margin="5">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="Transparent" >
+                <Grid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="2 4 1 4"></Setter>
+
+                        <Setter Property="Background" Value="LightCyan"></Setter>
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0 3 0 0"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding PatientCommand}" ToolTip="Bệnh Nhân" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Bệnh Nhân" HorizontalAlignment="Center" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="AccountMultiplePlus" />
+                        </Grid>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="1" ToolTip="Kho Thuốc">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Kho Thuốc" HorizontalAlignment="Center" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="HomeAssistant" />
+                        </Grid>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="2" ToolTip="Báo Cáo">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Báo Cáo" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="ChartAreaspline" />
+                        </Grid>
+                    </Grid>
+                </Button>
+                <Button Grid.Column="3" ToolTip="Quy Định">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Quy Định" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="CalendarText" />
+                        </Grid>
+                    </Grid>
+                </Button>
+            </Grid>
+
+        </Grid>
+     
+        <Grid Grid.Row="3"  Margin="5 15 5 15">
+            <materialDesign:Card>
+            <TextBlock   Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">Báo Cáo Sử Dụng Thuốc</TextBlock>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Row="4"  Margin="5 5 15 15">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" HorizontalAlignment="Right" Margin="5 5 10 5" Width="110">
+                    <materialDesign:Card>
+                        <ComboBox ItemsSource="{Binding Thang}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            
+                        </ComboBox>
+                    </materialDesign:Card>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button   Margin="1 5 15 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
+                    </Button>
+                </Grid>
+
+            </Grid>
+
+
+
+        </Grid>
+
+        <Grid Grid.Row="5" Margin="5">
+            <materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã thuốc" DisplayMemberBinding="{Binding MaThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Tên thuốc" DisplayMemberBinding="{Binding TenThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Đơn vị" DisplayMemberBinding="{Binding DonVi}"></GridViewColumn>
+                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}"></GridViewColumn>
+                                <GridViewColumn Header="Số lần dùng" DisplayMemberBinding="{Binding SoLandung}"></GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+        
+    </Grid>
+   
+</Window>
