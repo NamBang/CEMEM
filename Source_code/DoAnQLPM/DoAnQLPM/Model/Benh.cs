@@ -19,7 +19,7 @@ namespace DoAnQLPM.Model
             this.PhieuKBs = new HashSet<PhieuKB>();
         }
     
-        public string MaBenh { get; set; }
+        public int MaBenh { get; set; }
         public string TenBenh { get; set; }
     
         public virtual ICollection<PhieuKB> PhieuKBs { get; set; }

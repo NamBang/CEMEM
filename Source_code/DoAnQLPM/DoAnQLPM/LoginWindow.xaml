@@ -16,6 +16,7 @@
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
        DataContext="{StaticResource LoginVM}"
+       
         >
 
     <Grid>

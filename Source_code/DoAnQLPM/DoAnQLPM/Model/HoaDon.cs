@@ -14,18 +14,12 @@ namespace DoAnQLPM.Model
     
     public partial class HoaDon
     {
-        public HoaDon()
-        {
-            this.PhieuKBs = new HashSet<PhieuKB>();
-        }
-    
-        public string MaHD { get; set; }
-        public string MaPKB { get; set; }
+        public int MaHD { get; set; }
+        public int MaPKB { get; set; }
         public double TienKham { get; set; }
         public double TienThuoc { get; set; }
         public double TongTien { get; set; }
     
-        public virtual ICollection<PhieuKB> PhieuKBs { get; set; }
         public virtual PhieuKB PhieuKB { get; set; }
     }
 }

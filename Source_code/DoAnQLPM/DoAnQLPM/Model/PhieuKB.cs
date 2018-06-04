@@ -20,10 +20,10 @@ namespace DoAnQLPM.Model
             this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public string MaPKB { get; set; }
-        public string MABN { get; set; }
-        public string MaBenh { get; set; }
-        public string MaHD { get; set; }
+        public int MaPKB { get; set; }
+        public int MABN { get; set; }
+        public int MaBenh { get; set; }
+        public int MaHD { get; set; }
         public string TrieuChung { get; set; }
         public Nullable<System.DateTime> NgayKham { get; set; }
         public Nullable<double> TienKham { get; set; }
@@ -31,7 +31,6 @@ namespace DoAnQLPM.Model
         public virtual Benh Benh { get; set; }
         public virtual BenhNhan BenhNhan { get; set; }
         public virtual ICollection<CTPhieuKB> CTPhieuKBs { get; set; }
-        public virtual HoaDon HoaDon { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

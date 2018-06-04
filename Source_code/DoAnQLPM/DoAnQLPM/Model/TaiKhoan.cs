@@ -14,9 +14,10 @@ namespace DoAnQLPM.Model
     
     public partial class TaiKhoan
     {
+        public int id { get; set; }
         public string username { get; set; }
         public string tenhienthi { get; set; }
         public string password { get; set; }
-        public int TYPE { get; set; }
+        public Nullable<int> TYPE { get; set; }
     }
 }

@@ -14,13 +14,13 @@ namespace DoAnQLPM.Model
     
     public partial class CTPhieuKB
     {
-        public string MaCT { get; set; }
-        public string MaPKB { get; set; }
-        public string MaThuoc { get; set; }
+        public int MaCT { get; set; }
+        public int MaPKB { get; set; }
+        public int MaThuoc { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string CachDung { get; set; }
         public string Donvi { get; set; }
-        public Nullable<double> gia { get; set; }
+        public Nullable<double> Gia { get; set; }
     
         public virtual PhieuKB PhieuKB { get; set; }
         public virtual Thuoc Thuoc { get; set; }

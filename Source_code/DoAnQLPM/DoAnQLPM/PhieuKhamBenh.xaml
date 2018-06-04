@@ -1,0 +1,72 @@
+﻿<Window x:Class="DoAnQLPM.PhieuKhamBenh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PhieuKhamBenh" Height="600" Width="800"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+             DataContext="{StaticResource PatientVM}"
+        >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  Margin="5 5 15 15">
+            <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">Phiếu Khám Bệnh</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Margin="5 5 5 5">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tìm bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tìm bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="5 5 5 5">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tìm bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tìm bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+          
+</Window>
+
+

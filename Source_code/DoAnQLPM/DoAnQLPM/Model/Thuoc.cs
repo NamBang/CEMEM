@@ -19,7 +19,7 @@ namespace DoAnQLPM.Model
             this.CTPhieuKBs = new HashSet<CTPhieuKB>();
         }
     
-        public string MaThuoc { get; set; }
+        public int MaThuoc { get; set; }
         public string TenThuoc { get; set; }
         public string CachDung { get; set; }
         public string DonVi { get; set; }

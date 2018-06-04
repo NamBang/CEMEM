@@ -12,7 +12,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
-                            
+             DataContext="{StaticResource PatientVM}"
         >
     <Grid VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
@@ -126,29 +126,46 @@
         </Grid>
         <Grid Grid.Row="3" Margin="5 15 0 15">
             <WrapPanel>
-                <TextBox Text="{Binding HoVaTen}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                 <TextBox Text="{Binding HoVaTen , UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-                <ComboBox Margin="5 5 15 5" ItemsSource="{Binding GioiTinh}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}">    </ComboBox>
+                <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}">  
+                   
+                </ComboBox>
+                <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm Sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Text="{Binding DiaChi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa Chỉ"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"></Button>
-                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"></Button>
-                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"></Button>
+                <Button Command="{Binding AddCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"></Button>
+                <Button Command="{Binding EdeleteCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"></Button>
+                <Button Command="{Binding EditCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"></Button>
 
             </WrapPanel>
         </Grid>
         <Grid Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã số" DisplayMemberBinding="{Binding MABN}"></GridViewColumn>
-                            <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
-                            <GridViewColumn Header="Giới Tính" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
-                            <GridViewColumn Header="Năm Sinh" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
-                            <GridViewColumn Header="Địa Chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
+                                 <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
+                                <GridViewColumn Header="Giới Tính" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
+                                <GridViewColumn Header="Năm Sinh" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
+                                <GridViewColumn Header="Địa Chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                        
+                                                <Button Command="{Binding LapPhieuKhamBenhCommand}"  Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Lập PKB"></Button>
+                                          </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
 
-                        </GridView>
+                                            <Button Command="{Binding ThanhToanCommand}"  Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thanh Toán"></Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
                     </ListView.View>
                 </ListView>
                 </ScrollViewer>

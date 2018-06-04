@@ -138,6 +138,9 @@
     <Compile Include="PatientWindows.xaml.cs">
       <DependentUpon>PatientWindows.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PhieuKhamBenh.xaml.cs">
+      <DependentUpon>PhieuKhamBenh.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,8 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\PatientViewModel.cs" />
+    <Compile Include="ViewModel\StoreViewModel.cs" />
     <Page Include="BillWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +180,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PatientWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PhieuKhamBenh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

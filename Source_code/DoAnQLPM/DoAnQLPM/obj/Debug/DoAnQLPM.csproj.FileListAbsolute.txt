@@ -42,3 +42,8 @@ D:\hoc\c#\DoAn\DoAnQLPM\DoAnQLPM\bin\Debug\Microsoft.Expression.Interactions.dll
 D:\hoc\c#\DoAn\DoAnQLPM\DoAnQLPM\bin\Debug\System.Windows.Interactivity.dll
 D:\hoc\c#\DoAn\DoAnQLPM\DoAnQLPM\bin\Debug\Microsoft.Expression.Interactions.xml
 D:\hoc\c#\DoAn\DoAnQLPM\DoAnQLPM\bin\Debug\System.Windows.Interactivity.xml
+D:\hoc\c#\DoAn\DoAnQLPM\DoAnQLPM\obj\Debug\PhieuKhamBenh.baml
+D:\hoc\c#\DoAn\DoAnQLPM\DoAnQLPM\obj\Debug\PhieuKhamBenh.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\DoAnQLPM.exe.config
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.exe
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.pdb

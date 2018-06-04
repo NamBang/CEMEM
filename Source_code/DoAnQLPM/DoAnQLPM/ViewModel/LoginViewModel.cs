@@ -31,6 +31,7 @@ namespace DoAnQLPM.ViewModel
 
         public void showPatientAction(object obj)
         {
+           
             var b = obj as PasswordBox;
             _MatKhau = b.Password.ToString();
             
@@ -38,9 +39,9 @@ namespace DoAnQLPM.ViewModel
             if (accCount > 0)
             {
                 
-
-                MainWindow MainWindow = new MainWindow(); 
-     
+                
+                MainWindow MainWindow = new MainWindow();
+               
                 MainWindow.ShowDialog();
                 
 
