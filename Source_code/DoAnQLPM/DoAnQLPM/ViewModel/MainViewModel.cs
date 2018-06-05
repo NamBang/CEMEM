@@ -12,6 +12,8 @@ namespace DoAnQLPM.ViewModel
     public class MainViewModel : BaseViewModel
     {
         public bool IsLoaded = false;
+        public ICommand LoadedViewConmand { get; set; }
+
         public ICommand PatientCommand { get; set; }
         public ICommand StoreCommand { get; set; }
         public ICommand ReportCommand { get; set; }
@@ -21,14 +23,34 @@ namespace DoAnQLPM.ViewModel
         public MainViewModel()
         {
 
+
+            LoadedViewConmand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+             {
+                 IsLoaded = true;
+                 if (p == null)
+                     return;
+                 p.Hide();
+                 LoginWindow loginWindow = new LoginWindow();
+                 loginWindow.ShowDialog();
+
+                 if (loginWindow.DataContext == null)
+                     return;
+                 var loginVM = loginWindow.DataContext as LoginViewModel;
+
+                 if(loginVM.IsLogin)
+                 {
+                     p.Show();
+                 }
+                 else
+                 {
+                     p.Close();
+                 }
+             });
             PatientCommand = new RelayCommand<object>((p) => { return true; }, showPatientAction);
             StoreCommand = new RelayCommand<object>((p) => { return true; }, showStoreAction);
             ReportCommand = new RelayCommand<object>((p) => { return true; }, showReportAction);
             ConfigCommand = new RelayCommand<object>((p) => { return true; }, showConfigAction);
             LoginCommand = new RelayCommand<object>((p) => { return true; }, showLoginAction);
-
-            //MessageBox.Show(DataProvider.Ins.DB.TaiKhoans.First().username);
-
         }
 
         public void showPatientAction(object obj)

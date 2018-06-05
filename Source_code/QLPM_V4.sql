@@ -10,14 +10,14 @@ CTPHIEUKB(mact, mapkb, mathuoc, sluong, cachdung, donvi)
 BENH(mabenh, tenbenh)
 */
 CREATE TABLE TaiKhoan(
-	id INT IDENTITY
+	id INT IDENTITY,
 	username	NVARCHAR(50) PRIMARY KEY NOT NULL,
 	tenhienthi	NVARCHAR(50) NOT NULL,
 	password	NVARCHAR(50) NOT NULL,
 	TYPE INT NOT NULL
 )  
 CREATE TABLE BenhNhan(
-	id INT IDENTITY
+	id INT IDENTITY,
 	mabn		NVARCHAR(4) PRIMARY KEY NOT NULL,
 	mapkb		NVARCHAR(4) NOT NULL,
 	hoten		NVARCHAR(50) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE BenhNhan(
 	diachi		NVARCHAR(100) NOT NULL,
 )
 CREATE TABLE Thuoc(
-	id INT IDENTITY
+	id INT IDENTITY,
 	mathuoc		NVARCHAR(4) PRIMARY KEY NOT NULL,
 	tenthuoc	NVARCHAR(50) NOT NULL,--30loai
 	cachdung	NVARCHAR(100) NOT NULL,
@@ -34,12 +34,12 @@ CREATE TABLE Thuoc(
 	dongia		FLOAT NOT NULL DEFAULT 0,
 )
 CREATE TABLE Benh(
-	id INT IDENTITY
+	id INT IDENTITY,
 	mabenh		NVARCHAR(4) PRIMARY KEY NOT NULL,
 	tenbenh		NVARCHAR(50) NOT NULL,
 )
 CREATE TABLE PhieuKB(
-	id INT IDENTITY
+	id INT IDENTITY,
 	mapkb		NVARCHAR(4) PRIMARY KEY NOT NULL,
 	mabn		NVARCHAR(4) NOT NULL,
 	mabenh		NVARCHAR(4) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE PhieuKB(
 	FOREIGN KEY (mabn) REFERENCES BenhNhan(mabn),
 )  
 CREATE TABLE CTPhieuKB(
-	id INT IDENTITY
+	id INT IDENTITY,
 	mact		NVARCHAR(4) PRIMARY KEY NOT NULL,
 	mapkb		NVARCHAR(4) NOT NULL,
 	mathuoc		NVARCHAR(4) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE CTPhieuKB(
 	FOREIGN KEY (mathuoc) REFERENCES Thuoc(mathuoc),
 )  
 CREATE TABLE HoaDon(
-	id INT IDENTITY
+	id INT IDENTITY,
 	mahd		NVARCHAR(4) PRIMARY KEY NOT NULL,
 	mapkb		NVARCHAR(4) NOT NULL,
 	tienkham	FLOAT NOT NULL DEFAULT 0,
@@ -84,7 +84,7 @@ CHECK(donvi IN (N'Chai',N'Viên'))
 
 ALTER TABLE PhieuKB
 ADD  CONSTRAINT Cont3
-FOREIGN KEY (mahd) REFERENCES HoaDon(mahd),
+FOREIGN KEY (mahd) REFERENCES HoaDon(mahd)
 --ADD DATA--------------------------------------------------------------------------------
 --Benh Nhan
 INSERT INTO BenhNhan VALUES('BN01',N'Phạm Hoài Phương',	N'Nam',1997,N'Thủ Đức')

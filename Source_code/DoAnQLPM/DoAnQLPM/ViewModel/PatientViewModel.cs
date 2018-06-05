@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace DoAnQLPM.ViewModel
 {
-    class PatientViewModel : BaseViewModel
+    public class PatientViewModel : BaseViewModel
     {
         public ObservableCollection<string> comboGioiTinh { get; set; }
         private ObservableCollection<BenhNhan> _List;
@@ -43,7 +43,7 @@ namespace DoAnQLPM.ViewModel
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
-
+        public ICommand DeleteCommand { get; set; }
 
 
         public PatientViewModel()
@@ -53,14 +53,9 @@ namespace DoAnQLPM.ViewModel
             comboGioiTinh.Add("Nữ");
           
             List = new ObservableCollection<BenhNhan>(DataProvider.Ins.DB.BenhNhans);
-
             AddCommand = new RelayCommand<object>( (p) =>
             {
-              
-
-
                 return true;
-                 
 
             }, (p) =>
             {
@@ -88,12 +83,7 @@ namespace DoAnQLPM.ViewModel
                 Patient.GioiTinh = GioiTinh;
                 Patient.NamSinh = NamSinh;
                 Patient.DiaChi = DiaChi;
-             
-
-        
                 DataProvider.Ins.DB.SaveChanges();
-              
-                
             });
 
 

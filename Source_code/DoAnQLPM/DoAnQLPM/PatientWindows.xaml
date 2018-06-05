@@ -134,7 +134,7 @@
                 <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm Sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Text="{Binding DiaChi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa Chỉ"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <Button Command="{Binding AddCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"></Button>
-                <Button Command="{Binding EdeleteCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"></Button>
+                <Button Command="{Binding DeleteCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"></Button>
                 <Button Command="{Binding EditCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"></Button>
 
             </WrapPanel>

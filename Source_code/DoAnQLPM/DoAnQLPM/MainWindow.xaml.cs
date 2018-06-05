@@ -25,7 +25,6 @@ namespace DoAnQLPM
         public MainWindow()
         {
             InitializeComponent();
-           // DataContext = new MainViewModel();
         }
     }
 }

@@ -11,60 +11,48 @@ namespace DoAnQLPM.ViewModel
 {
     class LoginViewModel : BaseViewModel
  {
-        public bool IsLoaded = false;
-        private string _TaiKhoan;
+        public bool IsLogin { get; set; }
+        private string _TaiKhoan = "";
         public string TaiKhoan { get { return _TaiKhoan; } set { _TaiKhoan = value; OnPropertyChanged(); } } 
-        private string _MatKhau;
+        private string _MatKhau = "";
         public string MatKhau { get { return _MatKhau; } set { _MatKhau = value; OnPropertyChanged(); } } 
 
         public ICommand LoginCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public LoginViewModel()
         {
+            IsLogin = false;
 
-            LoginCommand = new RelayCommand<object>((p) => { return true; }, showPatientAction);
-            PasswordChangedCommand = new RelayCommand<object>((p) => { return true; }, PasswordChangedAction);
-
-            //MessageBox.Show(DataProvider.Ins.DB.TaiKhoans.First().username);
+            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                Login(p);
+                    } );
+            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { MatKhau = p.Password; });
 
         }
-
-        public void showPatientAction(object obj)
+        void Login(Window p)
         {
-           
-            var b = obj as PasswordBox;
-            _MatKhau = b.Password.ToString();
-            
-            var accCount = DataProvider.Ins.DB.TaiKhoans.Where(x => x.username == TaiKhoan  && x.password == _MatKhau).Count();
-            if (accCount > 0)
+            if (p == null)
+                return;
+            var accCount = DataProvider.Ins.DB.TaiKhoans.Where(x => x.username == _TaiKhoan && x.password == _MatKhau).Count();
+            if(accCount > 0)
             {
-                
-                
-                MainWindow MainWindow = new MainWindow();
-               
-                MainWindow.ShowDialog();
-                
-
-                //p.Close();
+                IsLogin = true;
+                p.Close();
             }
             else
             {
-              //  IsLogin = false;
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                IsLogin = false;
+                if (_MatKhau == "" || _TaiKhoan == "")
+                    MessageBox.Show("Vui lòng nhập tài khoản hoặc mật khẩu!");
+                else
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
             }
-
-         //   Application.Current.MainWindow = PatientWindow;
-         //   PatientWindow.Show();
         }
         public void PasswordChangedAction(object obj)
         {
             var b = obj as PasswordBox;
             _MatKhau = b.Password.ToString();
-           // MessageBox.Show(b.Password.ToString());
-            //   Application.Current.MainWindow = PatientWindow;
-            //   PatientWindow.Show();
         }
      
-      
     }
 }
