@@ -43,9 +43,9 @@ namespace DoAnQLPM.ViewModel
             {
                 IsLogin = false;
                 if (_MatKhau == "" || _TaiKhoan == "")
-                    MessageBox.Show("Vui lòng nhập tài khoản hoặc mật khẩu!");
+                    MessageBox.Show("Vui lòng nhập tài khoản hoặc mật khẩu!","Thông Báo",MessageBoxButton.OK,MessageBoxImage.Exclamation);
                 else
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu. Vui lòng thử lại!","Thông Báo",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
         public void PasswordChangedAction(object obj)

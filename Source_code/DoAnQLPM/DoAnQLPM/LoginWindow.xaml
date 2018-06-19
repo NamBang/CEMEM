@@ -18,18 +18,18 @@
        DataContext="{StaticResource LoginVM}" AutomationProperties.Name="LoginWindow"
         >
 
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-      
-            
+
+
         </Grid>
-        <materialDesign:Card Grid.Row="1" Width="330" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
-            
+        <materialDesign:Card Grid.Row="1" Width="374" Height="254" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,24,10,23">
+
             <Grid >
                 <Grid.Resources>
                     <Style TargetType="Grid">
@@ -65,7 +65,7 @@
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         
                         Width="110"
-                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Content="Đăng Nhập">           
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Content="Đăng Nhập">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding LoginCommand}" 

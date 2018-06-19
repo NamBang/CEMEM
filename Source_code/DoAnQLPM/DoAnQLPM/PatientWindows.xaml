@@ -21,7 +21,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition ></RowDefinition>
-           
+
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="5 15 15 15">
@@ -126,35 +126,34 @@
         </Grid>
         <Grid Grid.Row="3" Margin="5 15 0 15">
             <WrapPanel>
-                 <TextBox Text="{Binding HoVaTen , UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-                <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}">  
-                   
-                </ComboBox>
+                <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
                 <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm Sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Text="{Binding DiaChi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa Chỉ"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <Button Command="{Binding AddCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"></Button>
-                <Button Command="{Binding DeleteCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"></Button>
-                <Button Command="{Binding EditCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"></Button>
+                <Button Command="{Binding AddCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
+                <Button Command="{Binding DeleteCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
+                <Button Command="{Binding EditCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
 
             </WrapPanel>
         </Grid>
         <Grid Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
-                    <ListView.View>
-                        <GridView>
-                                 <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
+                    <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
                                 <GridViewColumn Header="Giới Tính" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
                                 <GridViewColumn Header="Năm Sinh" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
                                 <GridViewColumn Header="Địa Chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                        
-                                                <Button Command="{Binding LapPhieuKhamBenhCommand}"  Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Lập PKB"></Button>
-                                          </DataTemplate>
+
+                                            <Button Command="{Binding LapPhieuKhamBenhCommand}"  Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Lập PKB"></Button>
+                                        </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn>
@@ -166,8 +165,8 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                             </GridView>
-                    </ListView.View>
-                </ListView>
+                        </ListView.View>
+                    </ListView>
                 </ScrollViewer>
             </materialDesign:Card>
         </Grid>

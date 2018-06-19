@@ -43,8 +43,6 @@ namespace DoAnQLPM.ViewModel
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
-        public ICommand DeleteCommand { get; set; }
-
 
         public PatientViewModel()
         {
