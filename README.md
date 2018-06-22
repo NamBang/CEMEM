@@ -39,7 +39,7 @@ Phần mềm:
 # Member
 
 	Phạm Hoài Phương	: Leader+Thiết kế Giao diện
-	Trần Quốc Thi		: Thiết kế Dữ liệu
+	Trần Quốc Thi		: Xử lý yêu cầu chức năng
 	Nguyễn Trọng Nhân	: Thiết kế Dữ liệu
 	Trần Nam Bàng		: Thiết kế Dữ liệu
 	Nguyễn Văn Trưa		: Thiết kế Giao diện+Thiết kế Xử lý
