@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="QLPM4ModelStoreContainer" CdmEntityContainer="QLPM4Entities">
-    <EntitySetMapping Name="Benhs">
-      <EntityTypeMapping TypeName="QLPM4Model.Benh">
-        <MappingFragment StoreEntitySet="Benh">
-          <ScalarProperty Name="TenBenh" ColumnName="TenBenh" />
-          <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BenhNhans">
       <EntityTypeMapping TypeName="QLPM4Model.BenhNhan">
         <MappingFragment StoreEntitySet="BenhNhan">
@@ -17,19 +9,19 @@
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
           <ScalarProperty Name="MaBN" ColumnName="MaBN" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CTPhieuKBs">
-      <EntityTypeMapping TypeName="QLPM4Model.CTPhieuKB">
-        <MappingFragment StoreEntitySet="CTPhieuKB">
-          <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="Donvi" ColumnName="Donvi" />
+    <EntitySetMapping Name="CHITIETPKBs">
+      <EntityTypeMapping TypeName="QLPM4Model.CHITIETPKB">
+        <MappingFragment StoreEntitySet="CHITIETPKB">
           <ScalarProperty Name="CachDung" ColumnName="CachDung" />
-          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="SLThuoc" ColumnName="SLThuoc" />
           <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
           <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
-          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="MaCTPKB" ColumnName="MaCTPKB" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -41,19 +33,19 @@
           <ScalarProperty Name="TienKham" ColumnName="TienKham" />
           <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
           <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PhieuKBs">
       <EntityTypeMapping TypeName="QLPM4Model.PhieuKB">
         <MappingFragment StoreEntitySet="PhieuKB">
-          <ScalarProperty Name="TienKham" ColumnName="TienKham" />
           <ScalarProperty Name="NgayKham" ColumnName="NgayKham" />
           <ScalarProperty Name="TrieuChung" ColumnName="TrieuChung" />
-          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-          <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
-          <ScalarProperty Name="MABN" ColumnName="MABN" />
+          <ScalarProperty Name="LoaiBenh" ColumnName="LoaiBenh" />
+          <ScalarProperty Name="MaBN" ColumnName="MaBN" />
           <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -73,9 +65,9 @@
         <MappingFragment StoreEntitySet="Thuoc">
           <ScalarProperty Name="DonGia" ColumnName="DonGia" />
           <ScalarProperty Name="DonVi" ColumnName="DonVi" />
-          <ScalarProperty Name="CachDung" ColumnName="CachDung" />
           <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
           <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

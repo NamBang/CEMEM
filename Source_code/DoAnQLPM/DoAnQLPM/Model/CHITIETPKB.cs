@@ -12,16 +12,16 @@ namespace DoAnQLPM.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Benh
+    public partial class CHITIETPKB
     {
-        public Benh()
-        {
-            this.PhieuKBs = new HashSet<PhieuKB>();
-        }
+        public int id { get; set; }
+        public string MaCTPKB { get; set; }
+        public string MaPKB { get; set; }
+        public string MaThuoc { get; set; }
+        public int SLThuoc { get; set; }
+        public string CachDung { get; set; }
     
-        public int MaBenh { get; set; }
-        public string TenBenh { get; set; }
-    
-        public virtual ICollection<PhieuKB> PhieuKBs { get; set; }
+        public virtual PhieuKB PhieuKB { get; set; }
+        public virtual Thuoc Thuoc { get; set; }
     }
 }

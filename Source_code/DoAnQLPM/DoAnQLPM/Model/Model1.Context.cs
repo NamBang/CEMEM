@@ -25,9 +25,8 @@ namespace DoAnQLPM.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Benh> Benhs { get; set; }
         public virtual DbSet<BenhNhan> BenhNhans { get; set; }
-        public virtual DbSet<CTPhieuKB> CTPhieuKBs { get; set; }
+        public virtual DbSet<CHITIETPKB> CHITIETPKBs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<PhieuKB> PhieuKBs { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }

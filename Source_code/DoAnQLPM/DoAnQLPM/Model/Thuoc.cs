@@ -16,15 +16,15 @@ namespace DoAnQLPM.Model
     {
         public Thuoc()
         {
-            this.CTPhieuKBs = new HashSet<CTPhieuKB>();
+            this.CHITIETPKBs = new HashSet<CHITIETPKB>();
         }
     
-        public int MaThuoc { get; set; }
+        public int id { get; set; }
+        public string MaThuoc { get; set; }
         public string TenThuoc { get; set; }
-        public string CachDung { get; set; }
         public string DonVi { get; set; }
-        public double DonGia { get; set; }
+        public int DonGia { get; set; }
     
-        public virtual ICollection<CTPhieuKB> CTPhieuKBs { get; set; }
+        public virtual ICollection<CHITIETPKB> CHITIETPKBs { get; set; }
     }
 }
