@@ -29,6 +29,7 @@
         </i:Interaction.Triggers>
         <Grid>
 
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -46,7 +47,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <materialDesign:Card Grid.Row="0" Margin="5">
+            <materialDesign:Card Grid.Row="0" Margin="10,10,0,0">
             <WrapPanel Margin="0 0 0 10">
                 <TextBox Text="{Binding MaThuoc, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã thuốc" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Text="{Binding TenThuoc, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên thuốc" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
