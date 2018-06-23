@@ -55,12 +55,27 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
 
-                                <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tìm bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <TextBox x:Name="textBoxFind" Text="{Binding TimHoVaTen}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Nhập Họ tên bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding TextChangedCommandBenhNhan}"
+                                            CommandParameter="{Binding ElementName=textBoxFind}"
+                                            />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
 
 
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Button    Style="{StaticResource MaterialDesignRaisedButton}"    Width="60"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left" Margin="5,0,0,0"  >
+                                <Button Command="{Binding IsOnCommandBenhNhan}"  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đóng" HorizontalAlignment="Left">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding closeCommandBenhNhan}"
+                                            CommandParameter="{Binding ElementName=textBoxFind}"
+                                            />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -69,16 +84,14 @@
 
                     <Grid Grid.Row="3" Margin="5 15 0 15">
                         <WrapPanel>
-
-                              <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
+                            <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                             <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
                             <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm Sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                             <TextBox Text="{Binding DiaChi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa Chỉ"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <Button Command="{Binding AddCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
-                            <Button Command="{Binding DeleteCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
-                            <Button Command="{Binding EditCommand}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
-
+                            <Button Command="{Binding AddCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
+                            <Button Command="{Binding DeleteCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
+                            <Button Command="{Binding EditCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
+                            <Button Command="{Binding ResetCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đóng"/>
                         </WrapPanel>
                     </Grid>
                     <Grid Grid.Row="4">
@@ -87,6 +100,7 @@
                                 <ListView x:Name="DanhSachBenhNhan" ItemsSource="{Binding ListBenhNhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemBenhNhan,Mode=TwoWay}">
                                     <ListView.View>
                                         <GridView>
+                                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding MaBN}"></GridViewColumn>
                                             <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
                                             <GridViewColumn Header="Giới Tính" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
                                             <GridViewColumn Header="Năm Sinh" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
@@ -156,12 +170,38 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0" HorizontalAlignment="Right" Width="110">
                                 <materialDesign:Card Margin="5 5 0 5">
-                                    <ComboBox  ItemsSource="{Binding Thang}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                    <ComboBox Name="combobox" ItemsSource="{Binding Thang}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                        <ComboBoxItem Content="Một"></ComboBoxItem>
+                                        <ComboBoxItem Content="Hai"></ComboBoxItem>
+                                        <ComboBoxItem Content="Ba"></ComboBoxItem>
+                                        <ComboBoxItem Content="Bốn"></ComboBoxItem>
+                                        <ComboBoxItem Content="Năm"></ComboBoxItem>
+                                        <ComboBoxItem Content="Sáu"></ComboBoxItem>
+                                        <ComboBoxItem Content="Bảy"></ComboBoxItem>
+                                        <ComboBoxItem Content="Tám"></ComboBoxItem>
+                                        <ComboBoxItem Content="Chín"></ComboBoxItem>
+                                        <ComboBoxItem Content="Mười"></ComboBoxItem>
+                                        <ComboBoxItem Content="Mười Một"></ComboBoxItem>
+                                        <ComboBoxItem Content="Mười Hai"></ComboBoxItem>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding SelectionChangedCommandBaoCao}"
+                                                 CommandParameter="{Binding ElementName=combobox}"
+                                                 />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                     </ComboBox>
                                 </materialDesign:Card>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Button  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
+                                <Button Command="{Binding IsOnClick}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding ClickFindCommandBaoCao}"
+                                                       CommandParameter="{Binding ElementName=listView}"
+                                                        />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
                                 </Button>
                             </Grid>
 
@@ -174,7 +214,7 @@
                     <Grid Grid.Row="2">
                         <materialDesign:Card Margin="10 10 10 10">
                             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <ListView ItemsSource="{Binding ListDoanhThu}" SelectedItem="{Binding SelectedItemDanhThu,Mode=OneWayToSource}">
+                                <ListView Name="FormOneView" ItemsSource="{Binding}" DataContext="{Binding allData}">
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
