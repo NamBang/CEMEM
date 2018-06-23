@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DoAnQLPM
+namespace DoAnQLPM.ControlBar
 {
     /// <summary>
-    /// Interaction logic for DrugStorge.xaml
+    /// Interaction logic for ControlBarUC.xaml
     /// </summary>
-    public partial class StoreWindow : Window
+    public partial class ControlBarUC : UserControl
     {
-        public StoreWindow()
+        public ControlBarUC()
         {
             InitializeComponent();
         }

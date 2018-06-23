@@ -23,11 +23,11 @@ namespace DoAnQLPM.Model
             }
         }
 
-        public QLPM4Entities DB { get; set; }
+        public QLPM4Entities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QLPM4Entities();
+            DB = new QLPM4Entities1();
 
         }
     }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QLPM4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QLPM4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Benh">
           <Key>
             <PropertyRef Name="MaBenh" />
@@ -51,7 +51,6 @@
           <Property Name="MaPKB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MABN" Type="int" Nullable="false" />
           <Property Name="MaBenh" Type="int" Nullable="false" />
-          <Property Name="MaHD" Type="int" Nullable="false" />
           <Property Name="TrieuChung" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="NgayKham" Type="date" />
           <Property Name="TienKham" Type="float" />
@@ -76,7 +75,7 @@
           <Property Name="DonVi" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DonGia" Type="float" Nullable="false" />
         </EntityType>
-        <Association Name="FK__CTPhieuKB__MaPKB__1BFD2C07">
+        <Association Name="FK__CTPhieuKB__MaPKB__5CD6CB2B">
           <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="1" />
           <End Role="CTPhieuKB" Type="Self.CTPhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -88,7 +87,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTPhieuKB__MaThu__1CF15040">
+        <Association Name="FK__CTPhieuKB__MaThu__5DCAEF64">
           <End Role="Thuoc" Type="Self.Thuoc" Multiplicity="1" />
           <End Role="CTPhieuKB" Type="Self.CTPhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -100,7 +99,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HoaDon__MaPKB__24927208">
+        <Association Name="FK__HoaDon__MaPKB__5EBF139D">
           <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="1" />
           <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -112,7 +111,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuKB__MaBenh__15502E78">
+        <Association Name="FK__PhieuKB__MaBenh__5FB337D6">
           <End Role="Benh" Type="Self.Benh" Multiplicity="1" />
           <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -124,7 +123,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuKB__MABN__164452B1">
+        <Association Name="FK__PhieuKB__MABN__60A75C0F">
           <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
           <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -144,78 +143,50 @@
           <EntitySet Name="PhieuKB" EntityType="Self.PhieuKB" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Thuoc" EntityType="Self.Thuoc" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CTPhieuKB__MaPKB__1BFD2C07" Association="Self.FK__CTPhieuKB__MaPKB__1BFD2C07">
+          <AssociationSet Name="FK__CTPhieuKB__MaPKB__5CD6CB2B" Association="Self.FK__CTPhieuKB__MaPKB__5CD6CB2B">
             <End Role="PhieuKB" EntitySet="PhieuKB" />
             <End Role="CTPhieuKB" EntitySet="CTPhieuKB" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTPhieuKB__MaThu__1CF15040" Association="Self.FK__CTPhieuKB__MaThu__1CF15040">
+          <AssociationSet Name="FK__CTPhieuKB__MaThu__5DCAEF64" Association="Self.FK__CTPhieuKB__MaThu__5DCAEF64">
             <End Role="Thuoc" EntitySet="Thuoc" />
             <End Role="CTPhieuKB" EntitySet="CTPhieuKB" />
           </AssociationSet>
-          <AssociationSet Name="FK__HoaDon__MaPKB__24927208" Association="Self.FK__HoaDon__MaPKB__24927208">
+          <AssociationSet Name="FK__HoaDon__MaPKB__5EBF139D" Association="Self.FK__HoaDon__MaPKB__5EBF139D">
             <End Role="PhieuKB" EntitySet="PhieuKB" />
             <End Role="HoaDon" EntitySet="HoaDon" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuKB__MaBenh__15502E78" Association="Self.FK__PhieuKB__MaBenh__15502E78">
+          <AssociationSet Name="FK__PhieuKB__MaBenh__5FB337D6" Association="Self.FK__PhieuKB__MaBenh__5FB337D6">
             <End Role="Benh" EntitySet="Benh" />
             <End Role="PhieuKB" EntitySet="PhieuKB" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuKB__MABN__164452B1" Association="Self.FK__PhieuKB__MABN__164452B1">
+          <AssociationSet Name="FK__PhieuKB__MABN__60A75C0F" Association="Self.FK__PhieuKB__MABN__60A75C0F">
             <End Role="BenhNhan" EntitySet="BenhNhan" />
             <End Role="PhieuKB" EntitySet="PhieuKB" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLPM4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="QLPM4Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Benhs" EntityType="QLPM4Model.Benh" />
-          <EntitySet Name="BenhNhans" EntityType="QLPM4Model.BenhNhan" />
-          <EntitySet Name="CTPhieuKBs" EntityType="QLPM4Model.CTPhieuKB" />
-          <EntitySet Name="HoaDons" EntityType="QLPM4Model.HoaDon" />
-          <EntitySet Name="PhieuKBs" EntityType="QLPM4Model.PhieuKB" />
-          <EntitySet Name="TaiKhoans" EntityType="QLPM4Model.TaiKhoan" />
-          <EntitySet Name="Thuocs" EntityType="QLPM4Model.Thuoc" />
-          <AssociationSet Name="FK__PhieuKB__MaBenh__15502E78" Association="QLPM4Model.FK__PhieuKB__MaBenh__15502E78">
-            <End Role="Benh" EntitySet="Benhs" />
-            <End Role="PhieuKB" EntitySet="PhieuKBs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuKB__MABN__164452B1" Association="QLPM4Model.FK__PhieuKB__MABN__164452B1">
-            <End Role="BenhNhan" EntitySet="BenhNhans" />
-            <End Role="PhieuKB" EntitySet="PhieuKBs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CTPhieuKB__MaPKB__1BFD2C07" Association="QLPM4Model.FK__CTPhieuKB__MaPKB__1BFD2C07">
-            <End Role="PhieuKB" EntitySet="PhieuKBs" />
-            <End Role="CTPhieuKB" EntitySet="CTPhieuKBs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CTPhieuKB__MaThu__1CF15040" Association="QLPM4Model.FK__CTPhieuKB__MaThu__1CF15040">
-            <End Role="Thuoc" EntitySet="Thuocs" />
-            <End Role="CTPhieuKB" EntitySet="CTPhieuKBs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HoaDon__MaPKB__24927208" Association="QLPM4Model.FK__HoaDon__MaPKB__24927208">
-            <End Role="PhieuKB" EntitySet="PhieuKBs" />
-            <End Role="HoaDon" EntitySet="HoaDons" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Benh">
           <Key>
             <PropertyRef Name="MaBenh" />
           </Key>
           <Property Name="MaBenh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenBenh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PhieuKBs" Relationship="QLPM4Model.FK__PhieuKB__MaBenh__15502E78" FromRole="Benh" ToRole="PhieuKB" />
+          <Property Name="TenBenh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PhieuKBs" Relationship="Self.FK__PhieuKB__MaBenh__5FB337D6" FromRole="Benh" ToRole="PhieuKB" />
         </EntityType>
         <EntityType Name="BenhNhan">
           <Key>
             <PropertyRef Name="MaBN" />
           </Key>
           <Property Name="MaBN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HoVaTen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="HoVaTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NamSinh" Type="Int32" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PhieuKBs" Relationship="QLPM4Model.FK__PhieuKB__MABN__164452B1" FromRole="BenhNhan" ToRole="PhieuKB" />
+          <NavigationProperty Name="PhieuKBs" Relationship="Self.FK__PhieuKB__MABN__60A75C0F" FromRole="BenhNhan" ToRole="PhieuKB" />
         </EntityType>
         <EntityType Name="CTPhieuKB">
           <Key>
@@ -225,11 +196,11 @@
           <Property Name="MaPKB" Type="Int32" Nullable="false" />
           <Property Name="MaThuoc" Type="Int32" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
-          <Property Name="CachDung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Donvi" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CachDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Donvi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Gia" Type="Double" />
-          <NavigationProperty Name="PhieuKB" Relationship="QLPM4Model.FK__CTPhieuKB__MaPKB__1BFD2C07" FromRole="CTPhieuKB" ToRole="PhieuKB" />
-          <NavigationProperty Name="Thuoc" Relationship="QLPM4Model.FK__CTPhieuKB__MaThu__1CF15040" FromRole="CTPhieuKB" ToRole="Thuoc" />
+          <NavigationProperty Name="PhieuKB" Relationship="Self.FK__CTPhieuKB__MaPKB__5CD6CB2B" FromRole="CTPhieuKB" ToRole="PhieuKB" />
+          <NavigationProperty Name="Thuoc" Relationship="Self.FK__CTPhieuKB__MaThu__5DCAEF64" FromRole="CTPhieuKB" ToRole="Thuoc" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -240,7 +211,7 @@
           <Property Name="TienKham" Type="Double" Nullable="false" />
           <Property Name="TienThuoc" Type="Double" Nullable="false" />
           <Property Name="TongTien" Type="Double" Nullable="false" />
-          <NavigationProperty Name="PhieuKB" Relationship="QLPM4Model.FK__HoaDon__MaPKB__24927208" FromRole="HoaDon" ToRole="PhieuKB" />
+          <NavigationProperty Name="PhieuKB" Relationship="Self.FK__HoaDon__MaPKB__5EBF139D" FromRole="HoaDon" ToRole="PhieuKB" />
         </EntityType>
         <EntityType Name="PhieuKB">
           <Key>
@@ -249,23 +220,22 @@
           <Property Name="MaPKB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MABN" Type="Int32" Nullable="false" />
           <Property Name="MaBenh" Type="Int32" Nullable="false" />
-          <Property Name="MaHD" Type="Int32" Nullable="false" />
-          <Property Name="TrieuChung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TrieuChung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgayKham" Type="DateTime" Precision="0" />
           <Property Name="TienKham" Type="Double" />
-          <NavigationProperty Name="Benh" Relationship="QLPM4Model.FK__PhieuKB__MaBenh__15502E78" FromRole="PhieuKB" ToRole="Benh" />
-          <NavigationProperty Name="BenhNhan" Relationship="QLPM4Model.FK__PhieuKB__MABN__164452B1" FromRole="PhieuKB" ToRole="BenhNhan" />
-          <NavigationProperty Name="CTPhieuKBs" Relationship="QLPM4Model.FK__CTPhieuKB__MaPKB__1BFD2C07" FromRole="PhieuKB" ToRole="CTPhieuKB" />
-          <NavigationProperty Name="HoaDons" Relationship="QLPM4Model.FK__HoaDon__MaPKB__24927208" FromRole="PhieuKB" ToRole="HoaDon" />
+          <NavigationProperty Name="Benh" Relationship="Self.FK__PhieuKB__MaBenh__5FB337D6" FromRole="PhieuKB" ToRole="Benh" />
+          <NavigationProperty Name="BenhNhan" Relationship="Self.FK__PhieuKB__MABN__60A75C0F" FromRole="PhieuKB" ToRole="BenhNhan" />
+          <NavigationProperty Name="CTPhieuKBs" Relationship="Self.FK__CTPhieuKB__MaPKB__5CD6CB2B" FromRole="PhieuKB" ToRole="CTPhieuKB" />
+          <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaPKB__5EBF139D" FromRole="PhieuKB" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
             <PropertyRef Name="username" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="tenhienthi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tenhienthi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TYPE" Type="Int32" />
         </EntityType>
         <EntityType Name="Thuoc">
@@ -273,15 +243,15 @@
             <PropertyRef Name="MaThuoc" />
           </Key>
           <Property Name="MaThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenThuoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CachDung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DonVi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenThuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CachDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DonGia" Type="Double" Nullable="false" />
-          <NavigationProperty Name="CTPhieuKBs" Relationship="QLPM4Model.FK__CTPhieuKB__MaThu__1CF15040" FromRole="Thuoc" ToRole="CTPhieuKB" />
+          <NavigationProperty Name="CTPhieuKBs" Relationship="Self.FK__CTPhieuKB__MaThu__5DCAEF64" FromRole="Thuoc" ToRole="CTPhieuKB" />
         </EntityType>
-        <Association Name="FK__PhieuKB__MaBenh__15502E78">
-          <End Type="QLPM4Model.Benh" Role="Benh" Multiplicity="1" />
-          <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="*" />
+        <Association Name="FK__PhieuKB__MaBenh__5FB337D6">
+          <End Role="Benh" Type="Self.Benh" Multiplicity="1" />
+          <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Benh">
               <PropertyRef Name="MaBenh" />
@@ -291,9 +261,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuKB__MABN__164452B1">
-          <End Type="QLPM4Model.BenhNhan" Role="BenhNhan" Multiplicity="1" />
-          <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="*" />
+        <Association Name="FK__PhieuKB__MABN__60A75C0F">
+          <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+          <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BenhNhan">
               <PropertyRef Name="MaBN" />
@@ -303,9 +273,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTPhieuKB__MaPKB__1BFD2C07">
-          <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="1" />
-          <End Type="QLPM4Model.CTPhieuKB" Role="CTPhieuKB" Multiplicity="*" />
+        <Association Name="FK__CTPhieuKB__MaPKB__5CD6CB2B">
+          <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="1" />
+          <End Role="CTPhieuKB" Type="Self.CTPhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhieuKB">
               <PropertyRef Name="MaPKB" />
@@ -315,9 +285,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTPhieuKB__MaThu__1CF15040">
-          <End Type="QLPM4Model.Thuoc" Role="Thuoc" Multiplicity="1" />
-          <End Type="QLPM4Model.CTPhieuKB" Role="CTPhieuKB" Multiplicity="*" />
+        <Association Name="FK__CTPhieuKB__MaThu__5DCAEF64">
+          <End Role="Thuoc" Type="Self.Thuoc" Multiplicity="1" />
+          <End Role="CTPhieuKB" Type="Self.CTPhieuKB" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Thuoc">
               <PropertyRef Name="MaThuoc" />
@@ -327,9 +297,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HoaDon__MaPKB__24927208">
-          <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="1" />
-          <End Type="QLPM4Model.HoaDon" Role="HoaDon" Multiplicity="*" />
+        <Association Name="FK__HoaDon__MaPKB__5EBF139D">
+          <End Role="PhieuKB" Type="Self.PhieuKB" Multiplicity="1" />
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhieuKB">
               <PropertyRef Name="MaPKB" />
@@ -339,87 +309,115 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="QLPM4Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Benhs" EntityType="Self.Benh" />
+          <EntitySet Name="BenhNhans" EntityType="Self.BenhNhan" />
+          <EntitySet Name="CTPhieuKBs" EntityType="Self.CTPhieuKB" />
+          <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+          <EntitySet Name="PhieuKBs" EntityType="Self.PhieuKB" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <EntitySet Name="Thuocs" EntityType="Self.Thuoc" />
+          <AssociationSet Name="FK__PhieuKB__MaBenh__5FB337D6" Association="Self.FK__PhieuKB__MaBenh__5FB337D6">
+            <End Role="Benh" EntitySet="Benhs" />
+            <End Role="PhieuKB" EntitySet="PhieuKBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuKB__MABN__60A75C0F" Association="Self.FK__PhieuKB__MABN__60A75C0F">
+            <End Role="BenhNhan" EntitySet="BenhNhans" />
+            <End Role="PhieuKB" EntitySet="PhieuKBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CTPhieuKB__MaPKB__5CD6CB2B" Association="Self.FK__CTPhieuKB__MaPKB__5CD6CB2B">
+            <End Role="PhieuKB" EntitySet="PhieuKBs" />
+            <End Role="CTPhieuKB" EntitySet="CTPhieuKBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CTPhieuKB__MaThu__5DCAEF64" Association="Self.FK__CTPhieuKB__MaThu__5DCAEF64">
+            <End Role="Thuoc" EntitySet="Thuocs" />
+            <End Role="CTPhieuKB" EntitySet="CTPhieuKBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__MaPKB__5EBF139D" Association="Self.FK__HoaDon__MaPKB__5EBF139D">
+            <End Role="PhieuKB" EntitySet="PhieuKBs" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLPM4ModelStoreContainer" CdmEntityContainer="QLPM4Entities">
+        <EntityContainerMapping StorageEntityContainer="QLPM4ModelStoreContainer" CdmEntityContainer="QLPM4Entities1">
           <EntitySetMapping Name="Benhs">
             <EntityTypeMapping TypeName="QLPM4Model.Benh">
               <MappingFragment StoreEntitySet="Benh">
-                <ScalarProperty Name="TenBenh" ColumnName="TenBenh" />
                 <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
+                <ScalarProperty Name="TenBenh" ColumnName="TenBenh" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BenhNhans">
             <EntityTypeMapping TypeName="QLPM4Model.BenhNhan">
               <MappingFragment StoreEntitySet="BenhNhan">
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
-                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
-                <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
                 <ScalarProperty Name="MaBN" ColumnName="MaBN" />
+                <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTPhieuKBs">
             <EntityTypeMapping TypeName="QLPM4Model.CTPhieuKB">
               <MappingFragment StoreEntitySet="CTPhieuKB">
-                <ScalarProperty Name="Gia" ColumnName="Gia" />
-                <ScalarProperty Name="Donvi" ColumnName="Donvi" />
-                <ScalarProperty Name="CachDung" ColumnName="CachDung" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-                <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
-                <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
                 <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+                <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
+                <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="CachDung" ColumnName="CachDung" />
+                <ScalarProperty Name="Donvi" ColumnName="Donvi" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HoaDons">
             <EntityTypeMapping TypeName="QLPM4Model.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
-                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-                <ScalarProperty Name="TienThuoc" ColumnName="TienThuoc" />
-                <ScalarProperty Name="TienKham" ColumnName="TienKham" />
-                <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
                 <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
+                <ScalarProperty Name="TienKham" ColumnName="TienKham" />
+                <ScalarProperty Name="TienThuoc" ColumnName="TienThuoc" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhieuKBs">
             <EntityTypeMapping TypeName="QLPM4Model.PhieuKB">
               <MappingFragment StoreEntitySet="PhieuKB">
-                <ScalarProperty Name="TienKham" ColumnName="TienKham" />
-                <ScalarProperty Name="NgayKham" ColumnName="NgayKham" />
-                <ScalarProperty Name="TrieuChung" ColumnName="TrieuChung" />
-                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-                <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
-                <ScalarProperty Name="MABN" ColumnName="MABN" />
                 <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
+                <ScalarProperty Name="MABN" ColumnName="MABN" />
+                <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
+                <ScalarProperty Name="TrieuChung" ColumnName="TrieuChung" />
+                <ScalarProperty Name="NgayKham" ColumnName="NgayKham" />
+                <ScalarProperty Name="TienKham" ColumnName="TienKham" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
             <EntityTypeMapping TypeName="QLPM4Model.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="tenhienthi" ColumnName="tenhienthi" />
-                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="tenhienthi" ColumnName="tenhienthi" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Thuocs">
             <EntityTypeMapping TypeName="QLPM4Model.Thuoc">
               <MappingFragment StoreEntitySet="Thuoc">
-                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
-                <ScalarProperty Name="CachDung" ColumnName="CachDung" />
-                <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
                 <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
+                <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
+                <ScalarProperty Name="CachDung" ColumnName="CachDung" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

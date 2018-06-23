@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d04d82aba8444a8b521be30c7346c5e" Name="Diagram1">
-        <EntityTypeShape EntityType="QLPM4Model.Benh" Width="1.5" PointX="0.75" PointY="1" />
-        <EntityTypeShape EntityType="QLPM4Model.BenhNhan" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="QLPM4Model.CTPhieuKB" Width="1.5" PointX="8.25" PointY="3.5" />
-        <EntityTypeShape EntityType="QLPM4Model.HoaDon" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="QLPM4Model.PhieuKB" Width="1.5" PointX="3" PointY="3.25" />
-        <EntityTypeShape EntityType="QLPM4Model.TaiKhoan" Width="1.5" PointX="0.75" PointY="7.625" />
-        <EntityTypeShape EntityType="QLPM4Model.Thuoc" Width="1.5" PointX="6" PointY="0.75" />
-        <AssociationConnector Association="QLPM4Model.FK__PhieuKB__MaBenh__15502E78" />
-        <AssociationConnector Association="QLPM4Model.FK__PhieuKB__MABN__164452B1" />
-        <AssociationConnector Association="QLPM4Model.FK__CTPhieuKB__MaPKB__1BFD2C07" />
-        <AssociationConnector Association="QLPM4Model.FK__CTPhieuKB__MaThu__1CF15040" />
-        <AssociationConnector Association="QLPM4Model.FK__HoaDon__MaPKB__24927208" />
+      <Diagram DiagramId="a0da7a29737f4e0889a3b648e4860d29" Name="Diagram1">
+        <EntityTypeShape EntityType="QLPM4Model.Benh" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPM4Model.BenhNhan" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPM4Model.CTPhieuKB" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPM4Model.HoaDon" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPM4Model.PhieuKB" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPM4Model.TaiKhoan" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPM4Model.Thuoc" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="QLPM4Model.FK__PhieuKB__MaBenh__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPM4Model.FK__PhieuKB__MABN__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPM4Model.FK__CTPhieuKB__MaPKB__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPM4Model.FK__CTPhieuKB__MaThu__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPM4Model.FK__HoaDon__MaPKB__5EBF139D" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

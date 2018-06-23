@@ -34,7 +34,7 @@ namespace DoAnQLPM.ViewModel
                  loginWindow.ShowDialog();
 
                  if (loginWindow.DataContext == null)
-                     return;
+                     return; 
                  var loginVM = loginWindow.DataContext as LoginViewModel;
 
                  if(loginVM.IsLogin)
@@ -61,7 +61,8 @@ namespace DoAnQLPM.ViewModel
         }
         public void showStoreAction(object obj)
         {
-            StoreWindow StoreWindow = new StoreWindow(); StoreWindow.ShowDialog();
+            StoreWindow storeWindow = new StoreWindow();
+            storeWindow.ShowDialog();
          //   Application.Current.MainWindow = StoreWindow;
          //   StoreWindow.Show();
         }

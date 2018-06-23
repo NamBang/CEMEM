@@ -23,7 +23,6 @@ namespace DoAnQLPM.Model
         public int MaPKB { get; set; }
         public int MABN { get; set; }
         public int MaBenh { get; set; }
-        public int MaHD { get; set; }
         public string TrieuChung { get; set; }
         public Nullable<System.DateTime> NgayKham { get; set; }
         public Nullable<double> TienKham { get; set; }
