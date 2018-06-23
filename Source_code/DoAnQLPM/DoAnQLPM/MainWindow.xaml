@@ -70,7 +70,7 @@
                     <Grid Grid.Row="3" Margin="5 15 0 15">
                         <WrapPanel>
 
-                            <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                              <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                             <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
                             <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm Sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />

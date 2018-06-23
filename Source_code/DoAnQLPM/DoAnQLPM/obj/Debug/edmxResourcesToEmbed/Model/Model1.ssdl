@@ -4,8 +4,7 @@
     <Key>
       <PropertyRef Name="MaBN" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaBN" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaBN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HoVaTen" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
     <Property Name="NamSinh" Type="int" Nullable="false" />
@@ -15,10 +14,9 @@
     <Key>
       <PropertyRef Name="MaCTPKB" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaCTPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
-    <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
-    <Property Name="MaThuoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaCTPKB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPKB" Type="int" Nullable="false" />
+    <Property Name="MaThuoc" Type="int" Nullable="false" />
     <Property Name="SLThuoc" Type="int" Nullable="false" />
     <Property Name="CachDung" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
@@ -26,9 +24,8 @@
     <Key>
       <PropertyRef Name="MaHD" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaHD" Type="nvarchar" MaxLength="4" Nullable="false" />
-    <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPKB" Type="int" Nullable="false" />
     <Property Name="TienKham" Type="float" Nullable="false" />
     <Property Name="TienThuoc" Type="float" Nullable="false" />
     <Property Name="TongTien" Type="float" Nullable="false" />
@@ -37,9 +34,8 @@
     <Key>
       <PropertyRef Name="MaPKB" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
-    <Property Name="MaBN" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaPKB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaBN" Type="int" Nullable="false" />
     <Property Name="LoaiBenh" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="TrieuChung" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="NgayKham" Type="date" Nullable="false" />
@@ -58,8 +54,7 @@
     <Key>
       <PropertyRef Name="MaThuoc" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaThuoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenThuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DonVi" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="DonGia" Type="int" Nullable="false" />

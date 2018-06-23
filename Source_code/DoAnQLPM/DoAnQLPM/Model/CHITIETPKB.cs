@@ -14,10 +14,9 @@ namespace DoAnQLPM.Model
     
     public partial class CHITIETPKB
     {
-        public int id { get; set; }
-        public string MaCTPKB { get; set; }
-        public string MaPKB { get; set; }
-        public string MaThuoc { get; set; }
+        public int MaCTPKB { get; set; }
+        public int MaPKB { get; set; }
+        public int MaThuoc { get; set; }
         public int SLThuoc { get; set; }
         public string CachDung { get; set; }
     

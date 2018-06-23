@@ -20,9 +20,8 @@ namespace DoAnQLPM.Model
             this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int id { get; set; }
-        public string MaPKB { get; set; }
-        public string MaBN { get; set; }
+        public int MaPKB { get; set; }
+        public int MaBN { get; set; }
         public string LoaiBenh { get; set; }
         public string TrieuChung { get; set; }
         public System.DateTime NgayKham { get; set; }

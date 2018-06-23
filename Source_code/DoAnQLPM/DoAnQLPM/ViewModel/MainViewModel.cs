@@ -122,7 +122,7 @@ namespace DoAnQLPM.ViewModel
 
             }, (p) =>
             {
-                MessageBox.Show("co chay vo day");
+                //MessageBox.Show("co chay vo day");
                 PhieuKhamBenh PhieuKhamBenhwindown = new PhieuKhamBenh();
              //   PhieuKhamBenhwindown.HoVaTen.DataContext = SelectedItemBenhNhan.HoVaTen;
                 PhieuKhamBenhwindown.Show();

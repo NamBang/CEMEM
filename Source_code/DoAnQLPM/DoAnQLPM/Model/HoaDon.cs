@@ -14,9 +14,8 @@ namespace DoAnQLPM.Model
     
     public partial class HoaDon
     {
-        public int id { get; set; }
-        public string MaHD { get; set; }
-        public string MaPKB { get; set; }
+        public int MaHD { get; set; }
+        public int MaPKB { get; set; }
         public double TienKham { get; set; }
         public double TienThuoc { get; set; }
         public double TongTien { get; set; }

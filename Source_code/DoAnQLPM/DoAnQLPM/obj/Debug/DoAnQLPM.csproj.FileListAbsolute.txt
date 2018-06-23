@@ -136,3 +136,4 @@ C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQ
 C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.g.resources
 C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.Properties.Resources.resources
 C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.csproj.GenerateResource.Cache
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_Content.g.cs

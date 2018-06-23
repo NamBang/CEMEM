@@ -19,8 +19,7 @@ namespace DoAnQLPM.Model
             this.CHITIETPKBs = new HashSet<CHITIETPKB>();
         }
     
-        public int id { get; set; }
-        public string MaThuoc { get; set; }
+        public int MaThuoc { get; set; }
         public string TenThuoc { get; set; }
         public string DonVi { get; set; }
         public int DonGia { get; set; }

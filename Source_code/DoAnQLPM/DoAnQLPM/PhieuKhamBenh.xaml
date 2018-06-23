@@ -80,11 +80,11 @@
         <Grid Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+                    <ListView ItemsSource="{Binding ListThuoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemDanhSachThuoc,Mode=TwoWay}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Thuốc" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
-                                <GridViewColumn Header="Đơn vị" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
+                                <GridViewColumn Header="Thuốc" DisplayMemberBinding="{Binding MaThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Đơn vị" DisplayMemberBinding="{Binding DonVi }"></GridViewColumn>
                                 <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
                                 <GridViewColumn Header="Cách dùng" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
                                 <GridViewColumn>

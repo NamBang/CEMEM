@@ -9,8 +9,7 @@
           <Key>
             <PropertyRef Name="MaBN" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaBN" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="MaBN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoVaTen" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="NamSinh" Type="int" Nullable="false" />
@@ -20,10 +19,9 @@
           <Key>
             <PropertyRef Name="MaCTPKB" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaCTPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="MaThuoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="MaCTPKB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPKB" Type="int" Nullable="false" />
+          <Property Name="MaThuoc" Type="int" Nullable="false" />
           <Property Name="SLThuoc" Type="int" Nullable="false" />
           <Property Name="CachDung" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
@@ -31,9 +29,8 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaHD" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPKB" Type="int" Nullable="false" />
           <Property Name="TienKham" Type="float" Nullable="false" />
           <Property Name="TienThuoc" Type="float" Nullable="false" />
           <Property Name="TongTien" Type="float" Nullable="false" />
@@ -42,9 +39,8 @@
           <Key>
             <PropertyRef Name="MaPKB" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaPKB" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="MaBN" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="MaPKB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaBN" Type="int" Nullable="false" />
           <Property Name="LoaiBenh" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TrieuChung" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="NgayKham" Type="date" Nullable="false" />
@@ -63,8 +59,7 @@
           <Key>
             <PropertyRef Name="MaThuoc" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaThuoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="MaThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenThuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DonVi" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="DonGia" Type="int" Nullable="false" />
@@ -173,8 +168,7 @@
           <Key>
             <PropertyRef Name="MaBN" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaBN" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="MaBN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HoVaTen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="NamSinh" Type="Int32" Nullable="false" />
@@ -185,10 +179,9 @@
           <Key>
             <PropertyRef Name="MaCTPKB" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaCTPKB" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="MaPKB" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="MaThuoc" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="MaCTPKB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPKB" Type="Int32" Nullable="false" />
+          <Property Name="MaThuoc" Type="Int32" Nullable="false" />
           <Property Name="SLThuoc" Type="Int32" Nullable="false" />
           <Property Name="CachDung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PhieuKB" Relationship="QLPM4Model.FK2" FromRole="CHITIETPKB" ToRole="PhieuKB" />
@@ -198,9 +191,8 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaHD" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="MaPKB" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPKB" Type="Int32" Nullable="false" />
           <Property Name="TienKham" Type="Double" Nullable="false" />
           <Property Name="TienThuoc" Type="Double" Nullable="false" />
           <Property Name="TongTien" Type="Double" Nullable="false" />
@@ -210,9 +202,8 @@
           <Key>
             <PropertyRef Name="MaPKB" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaPKB" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="MaBN" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="MaPKB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaBN" Type="Int32" Nullable="false" />
           <Property Name="LoaiBenh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TrieuChung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NgayKham" Type="DateTime" Nullable="false" Precision="0" />
@@ -234,8 +225,7 @@
           <Key>
             <PropertyRef Name="MaThuoc" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaThuoc" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="MaThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenThuoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DonVi" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Int32" Nullable="false" />
@@ -303,7 +293,6 @@
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
                 <ScalarProperty Name="MaBN" ColumnName="MaBN" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -315,7 +304,6 @@
                 <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
                 <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
                 <ScalarProperty Name="MaCTPKB" ColumnName="MaCTPKB" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -327,7 +315,6 @@
                 <ScalarProperty Name="TienKham" ColumnName="TienKham" />
                 <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
                 <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -339,7 +326,6 @@
                 <ScalarProperty Name="LoaiBenh" ColumnName="LoaiBenh" />
                 <ScalarProperty Name="MaBN" ColumnName="MaBN" />
                 <ScalarProperty Name="MaPKB" ColumnName="MaPKB" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -361,7 +347,6 @@
                 <ScalarProperty Name="DonVi" ColumnName="DonVi" />
                 <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
                 <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
