@@ -11,7 +11,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
-             DataContext="{StaticResource PatientVM}"
+          
         >
 
     <Grid>

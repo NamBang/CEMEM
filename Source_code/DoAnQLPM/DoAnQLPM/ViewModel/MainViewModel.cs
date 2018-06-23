@@ -52,8 +52,8 @@ namespace DoAnQLPM.ViewModel
         }
         private string _TimHoVaTen;
         public string TimHoVaTen { get { return _TimHoVaTen; } set { _TimHoVaTen = value; OnPropertyChanged(); } }
-        private string _MaBN;
-        public string MaBN { get { return _MaBN; } set { _MaBN = value; OnPropertyChanged(); } }
+        private int _sttBenhnhan;
+        public int sttBenhnhan { get { return _sttBenhnhan; } set { _sttBenhnhan = value; OnPropertyChanged(); } }
         private string _HoVaTen;
         public string HoVaTen { get { return _HoVaTen; } set { _HoVaTen = value; OnPropertyChanged(); } }
         private string _GioiTinh;
@@ -63,6 +63,20 @@ namespace DoAnQLPM.ViewModel
         private string _DiaChi;
         public string DiaChi { get { return _DiaChi; } set { _DiaChi = value; OnPropertyChanged(); } }
         private bool IsOn = false;
+        private IEnumerable<BenhNhan> ConvertToBenhNhan(DataTable dataTable)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                yield return new BenhNhan
+                {
+                    MaBN = Convert.ToInt32(row["MaBN"]),
+                    HoVaTen = Convert.ToString(row["HoVaTen"]),
+                    GioiTinh = Convert.ToString(row["GioiTinh"]),
+                    NamSinh = Convert.ToInt32(row["NamSinh"]),
+                    DiaChi = Convert.ToString(row["DiaChi"])
+                };
+            }
+        }
         //Báo Cáo
         private bool isOnClick = false;
         private int _Thang;
@@ -116,7 +130,7 @@ namespace DoAnQLPM.ViewModel
             comboGioiTinh = new ObservableCollection<String>();
             comboGioiTinh.Add("Nam");
             comboGioiTinh.Add("Nữ");
-
+            _sttBenhnhan = 0;
             ListBenhNhan = new ObservableCollection<BenhNhan>(DataProvider.Ins.DB.BenhNhans);
             AddCommandBenhNhan = new RelayCommand<object>((p) =>
             {
@@ -192,37 +206,24 @@ namespace DoAnQLPM.ViewModel
                         SqlCommand command = new SqlCommand("[Search by Keyword]", conn);
                         command.Parameters.Add("@keyword", SqlDbType.VarChar).Value = _TimHoVaTen;
                         command.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter adp = new SqlDataAdapter(command);
 
-                        ListBenhNhan.Clear();
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        DataTable dt = new DataTable();
+                        adp.Fill(dt);
+                        if (dt.Rows.Count > 0)
                         {
-                            if (reader.Read())
-                            {
-                                while (reader.Read())
-                                {
-                                    string hovaten, gioitinh, diachi;
-                                    int namsinh;
-                                    hovaten = reader[1].ToString();
-                                    gioitinh = reader[2].ToString();
-                                    int.TryParse(reader[3].ToString(), out namsinh);
-                                    diachi = reader[4].ToString();
-                                    BenhNhan a = new BenhNhan() { HoVaTen = hovaten, GioiTinh = gioitinh, NamSinh = namsinh, DiaChi = diachi };
-                                    ListBenhNhan.Add(a);
-                                }
-                            }
-                            else
-                            {
-                                ListBenhNhan = new ObservableCollection<BenhNhan>(DataProvider.Ins.DB.BenhNhans.Where((x) => x.HoVaTen.StartsWith(_TimHoVaTen)));
-                            }
-
+                            ListBenhNhan = new ObservableCollection<BenhNhan>(ConvertToBenhNhan(dt));
                         }
-
+                        else
+                        {
+                            ListBenhNhan = new ObservableCollection<BenhNhan>(DataProvider.Ins.DB.BenhNhans.Where((x) => x.HoVaTen.StartsWith(_TimHoVaTen)));
+                        }
+                            
                     }
                 }
             });
 
-            ResetCommandBenhNhan = new RelayCommand<object>((p) =>
+        ResetCommandBenhNhan = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p) =>
@@ -289,16 +290,14 @@ namespace DoAnQLPM.ViewModel
                     ad.Fill(dt);
                     allData = dt.DefaultView;
                 }
-            }
-           );
+            });
             IsOnClick = new RelayCommand<object>((p) =>
             {
                 return isOnClick;
             }, (p) =>
             {
 
-            }
-           );
+            } );
             SelectionChangedCommandBaoCao = new RelayCommand<ComboBox>((p) =>
             {
                 return true;
@@ -306,8 +305,7 @@ namespace DoAnQLPM.ViewModel
             {
                 isOnClick = true;
                 _Thang = p.SelectedIndex;
-            }
-            );
+            } );
 
         }
     }

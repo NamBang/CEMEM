@@ -68,7 +68,7 @@
 
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Button Command="{Binding IsOnCommandBenhNhan}"  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đóng" HorizontalAlignment="Left">
+                                <Button Command="{Binding IsOnCommandBenhNhan}"  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đặt Lại" HorizontalAlignment="Left">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding closeCommandBenhNhan}"
@@ -91,7 +91,7 @@
                             <Button Command="{Binding AddCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
                             <Button Command="{Binding DeleteCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
                             <Button Command="{Binding EditCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
-                            <Button Command="{Binding ResetCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đóng"/>
+                            <Button Command="{Binding ResetCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đặt Lại"/>
                         </WrapPanel>
                     </Grid>
                     <Grid Grid.Row="4">
@@ -100,7 +100,7 @@
                                 <ListView x:Name="DanhSachBenhNhan" ItemsSource="{Binding ListBenhNhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemBenhNhan,Mode=TwoWay}">
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding MaBN}"></GridViewColumn>
+                                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding sttBenhnhan}"></GridViewColumn>
                                             <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
                                             <GridViewColumn Header="Giới Tính" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
                                             <GridViewColumn Header="Năm Sinh" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
@@ -109,7 +109,7 @@
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
 
-                                                        <Button Command="{Binding DataContext.LapPhieuKhamBenh_Click, ElementName=DanhSachBenhNhan }" CommandParameter="{Binding DataContext, ElementName=DanhSachBenhNhan}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Lập PKB"></Button>
+                                                        <Button Command="{Binding DataContext.LapPhieuKhamBenhCommand, ElementName=DanhSachBenhNhan }" CommandParameter="{Binding DataContext, ElementName=DanhSachBenhNhan}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Lập PKB"></Button>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
