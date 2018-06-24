@@ -12,18 +12,15 @@ namespace DoAnQLPM.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Thuoc
+    public partial class CHITIETPKB
     {
-        public Thuoc()
-        {
-            this.CHITIETPKBs = new HashSet<CHITIETPKB>();
-        }
-    
+        public int MaCTPKB { get; set; }
+        public int MaPKB { get; set; }
         public int MaThuoc { get; set; }
-        public string TenThuoc { get; set; }
-        public string DonVi { get; set; }
-        public int DonGia { get; set; }
+        public int SLThuoc { get; set; }
+        public string CachDung { get; set; }
     
-        public virtual ICollection<CHITIETPKB> CHITIETPKBs { get; set; }
+        public virtual PhieuKB PhieuKB { get; set; }
+        public virtual Thuoc Thuoc { get; set; }
     }
 }

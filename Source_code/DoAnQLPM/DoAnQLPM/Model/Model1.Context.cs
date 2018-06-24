@@ -13,10 +13,10 @@ namespace DoAnQLPM.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLPM4Entities1 : DbContext
+    public partial class QLPM4Entities : DbContext
     {
-        public QLPM4Entities1()
-            : base("name=QLPM4Entities1")
+        public QLPM4Entities()
+            : base("name=QLPM4Entities")
         {
         }
     
@@ -25,9 +25,8 @@ namespace DoAnQLPM.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Benh> Benhs { get; set; }
         public virtual DbSet<BenhNhan> BenhNhans { get; set; }
-        public virtual DbSet<CTPhieuKB> CTPhieuKBs { get; set; }
+        public virtual DbSet<CHITIETPKB> CHITIETPKBs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<PhieuKB> PhieuKBs { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }

@@ -93,52 +93,50 @@ C:\Users\My PC\Documents\GitHub\CNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\Do
 C:\Users\My PC\Documents\GitHub\CNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.g.resources
 C:\Users\My PC\Documents\GitHub\CNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.Properties.Resources.resources
 C:\Users\My PC\Documents\GitHub\CNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.csproj.GenerateResource.Cache
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\DoAnQLPM.exe
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\DoAnQLPM.pdb
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.dll
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignColors.dll
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.xml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignColors.pdb
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.csprojResolveAssemblyReference.cache
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\BillWindow.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ConfigWindow.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\LoginWindow.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\MainWindow.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PatientWindows.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PhieuKhamBenh.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ReportWindow.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\StoreWindow.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\UserControlQLPM\ControlBarUC.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\App.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\BillWindow.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ConfigWindow.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\LoginWindow.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\MainWindow.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PatientWindows.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PhieuKhamBenh.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ReportWindow.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\StoreWindow.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\UserControlQLPM\ControlBarUC.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\App.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_MarkupCompile.cache
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_MarkupCompile.lref
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ResourceXAML\MainResource.baml
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.g.resources
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.Properties.Resources.resources
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.csproj.GenerateResource.Cache
+C:\Users\phuong\Desktop\MyProject\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_Content.g.cs
 C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\DoAnQLPM.exe.config
 C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.exe
 C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.pdb
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\DoAnQLPM.exe
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\DoAnQLPM.pdb
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.dll
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignColors.dll
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\Microsoft.Expression.Interactions.dll
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.xml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignColors.pdb
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\Microsoft.Expression.Interactions.xml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\bin\Debug\System.Windows.Interactivity.xml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.csprojResolveAssemblyReference.cache
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\BillWindow.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ConfigWindow.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\LoginWindow.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\MainWindow.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PatientWindows.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PhieuKhamBenh.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ReportWindow.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\UserControlQLPM\ControlBarUC.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\App.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\BillWindow.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ConfigWindow.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ControlBar\ControlBarUC.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\StoreWindow.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\LoginWindow.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\MainWindow.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PatientWindows.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\PhieuKhamBenh.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ReportWindow.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\UserControlQLPM\ControlBarUC.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\App.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_Content.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_MarkupCompile.cache
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM_MarkupCompile.lref
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ControlBar\ControlBarUC.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\StoreWindow.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\ResourceXAML\MainResource.baml
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.g.resources
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.Properties.Resources.resources
-C:\Users\TQT\Desktop\Resposity NMCNPM\SE104_I23_Nhom_4_CEMEN_QLPMT\Source_code\DoAnQLPM\DoAnQLPM\obj\Debug\DoAnQLPM.csproj.GenerateResource.Cache

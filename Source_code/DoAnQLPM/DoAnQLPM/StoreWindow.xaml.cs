@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace DoAnQLPM
 {
     /// <summary>
-    /// Interaction logic for DrugStorge.xaml
+    /// Interaction logic for StoreWindow.xaml
     /// </summary>
     public partial class StoreWindow : Window
     {

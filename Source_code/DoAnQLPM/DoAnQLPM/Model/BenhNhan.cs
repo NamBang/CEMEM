@@ -9,21 +9,27 @@
 
 namespace DoAnQLPM.Model
 {
+    using DoAnQLPM.ViewModel;
     using System;
     using System.Collections.Generic;
-    
-    public partial class BenhNhan
+
+    public partial class BenhNhan : BaseViewModel
     {
         public BenhNhan()
         {
             this.PhieuKBs = new HashSet<PhieuKB>();
         }
-    
-        public int MaBN { get; set; }
-        public string HoVaTen { get; set; }
-        public string GioiTinh { get; set; }
-        public int NamSinh { get; set; }
-        public string DiaChi { get; set; }
+
+        private int _MaBN;
+        public int MaBN { get { return _MaBN; } set { _MaBN = value; OnPropertyChanged(); } }
+        private string _HoVaTen;
+        public string HoVaTen { get { return _HoVaTen; } set { _HoVaTen = value; OnPropertyChanged(); } }
+        private string _GioiTinh;
+        public string GioiTinh { get { return _GioiTinh; } set { _GioiTinh = value; OnPropertyChanged(); } }
+        private int _NamSinh;
+        public int NamSinh { get { return _NamSinh; } set { _NamSinh = value; OnPropertyChanged(); } }
+        private string _DiaChi;
+        public string DiaChi { get { return _DiaChi; } set { _DiaChi = value; OnPropertyChanged(); } }
     
         public virtual ICollection<PhieuKB> PhieuKBs { get; set; }
     }

@@ -16,20 +16,18 @@ namespace DoAnQLPM.Model
     {
         public PhieuKB()
         {
-            this.CTPhieuKBs = new HashSet<CTPhieuKB>();
+            this.CHITIETPKBs = new HashSet<CHITIETPKB>();
             this.HoaDons = new HashSet<HoaDon>();
         }
     
         public int MaPKB { get; set; }
-        public int MABN { get; set; }
-        public int MaBenh { get; set; }
+        public int MaBN { get; set; }
+        public string LoaiBenh { get; set; }
         public string TrieuChung { get; set; }
-        public Nullable<System.DateTime> NgayKham { get; set; }
-        public Nullable<double> TienKham { get; set; }
+        public System.DateTime NgayKham { get; set; }
     
-        public virtual Benh Benh { get; set; }
         public virtual BenhNhan BenhNhan { get; set; }
-        public virtual ICollection<CTPhieuKB> CTPhieuKBs { get; set; }
+        public virtual ICollection<CHITIETPKB> CHITIETPKBs { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }
