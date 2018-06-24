@@ -139,8 +139,8 @@
                         <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="HomeAssistant" />
                     </StackPanel>
                 </TabItem.Header>
-                
-                
+
+
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -151,84 +151,136 @@
 
                     </StackPanel>
                 </TabItem.Header>
+
                 <Grid >
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" MinHeight="595"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                  
+
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0"  Margin="5 15 5 15">
-                        <TextBlock  VerticalAlignment="Center" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">Báo Cáo Doanh Thu</TextBlock>
-                    </Grid>
-                    <Grid Grid.Row="1"  Margin="5 5 15 15">
+                    <TabControl  TabStripPlacement="Left" Margin="0,0,-2,0" HorizontalAlignment="Left" Width="740" Height="511" VerticalAlignment="Top">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type TabItem}">
+                                <Setter Property="HeaderTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <ContentPresenter Content="{TemplateBinding Content }">
+                                                <ContentPresenter.LayoutTransform>
+                                                    <RotateTransform Angle="270">
+                                                    </RotateTransform>
+                                                </ContentPresenter.LayoutTransform>
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Padding" Value="4"/>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition ></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0" HorizontalAlignment="Right" Width="110">
-                                <materialDesign:Card Margin="5 5 0 5">
-                                    <ComboBox Name="combobox" ItemsSource="{Binding Thang}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                                        <ComboBoxItem Content="Một"></ComboBoxItem>
-                                        <ComboBoxItem Content="Hai"></ComboBoxItem>
-                                        <ComboBoxItem Content="Ba"></ComboBoxItem>
-                                        <ComboBoxItem Content="Bốn"></ComboBoxItem>
-                                        <ComboBoxItem Content="Năm"></ComboBoxItem>
-                                        <ComboBoxItem Content="Sáu"></ComboBoxItem>
-                                        <ComboBoxItem Content="Bảy"></ComboBoxItem>
-                                        <ComboBoxItem Content="Tám"></ComboBoxItem>
-                                        <ComboBoxItem Content="Chín"></ComboBoxItem>
-                                        <ComboBoxItem Content="Mười"></ComboBoxItem>
-                                        <ComboBoxItem Content="Mười Một"></ComboBoxItem>
-                                        <ComboBoxItem Content="Mười Hai"></ComboBoxItem>
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="SelectionChanged">
-                                                <i:InvokeCommandAction Command="{Binding SelectionChangedCommandBaoCao}"
-                                                 CommandParameter="{Binding ElementName=combobox}"
+                            </Style>
+                        </TabControl.Resources>
+                        <TabControl.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.001"/>
+                                <RotateTransform Angle="-0.065"/>
+                                <TranslateTransform X="0.005"/>
+                            </TransformGroup>
+                        </TabControl.RenderTransform>
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Vertical" Width="245"   Background="LightCyan" >
+
+                                    <TextBlock Text="Doanh Thu Theo Ngày" HorizontalAlignment="Center"></TextBlock>
+                                    <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="Cash100" />
+
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid Margin="0,0,0,450" >
+                                    <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">BÁO CÁO DOANH THU THEO NGÀY</TextBlock>
+                                </Grid>
+                                <Grid Margin="10,55,-10,387">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" HorizontalAlignment="Right" Width="110">
+                                            <materialDesign:Card Margin="5 5 0 5">
+                                                <ComboBox Name="comboboxDoanhThu" ItemsSource="{Binding ThangDoanhThu}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                    <ComboBoxItem Content="Một"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Hai"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Ba"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Bốn"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Năm"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Sáu"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Bảy"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Tám"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Chín"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười Một"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười Hai"></ComboBoxItem>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="SelectionChanged">
+                                                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommandBaoCaoDoanhThu}"
+                                                 CommandParameter="{Binding ElementName=comboboxDoanhThu}"
                                                  />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </ComboBox>
-                                </materialDesign:Card>
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <Button Command="{Binding IsOnClick}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction Command="{Binding ClickFindCommandBaoCao}"
-                                                       CommandParameter="{Binding ElementName=listView}"
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </ComboBox>
+                                            </materialDesign:Card>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Button Command="{Binding IsOnClickDoanhThu}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="Click">
+                                                        <i:InvokeCommandAction Command="{Binding ClickFindCommandBaoCaoDoanhThu}"
                                                         />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </Button>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Button>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+                                <Grid Margin="10,118,10,10">
+                                    <materialDesign:Card Margin="10 10 10 10">
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                            <ListView ItemsSource="{Binding}" DataContext="{Binding allData}">
+                                                <ListView.View>
+                                                    <GridView>
+                                                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                                        <GridViewColumn Header="Ngày" DisplayMemberBinding="{Binding Ngay}"></GridViewColumn>
+                                                        <GridViewColumn Header="Số bệnh nhân" DisplayMemberBinding="{Binding SoBenhNhan}"></GridViewColumn>
+                                                        <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding DoanhThu}"></GridViewColumn>
+                                                        <GridViewColumn Header="Tỉ lệ" DisplayMemberBinding="{Binding TiLe}"></GridViewColumn>
+
+                                                    </GridView>
+                                                </ListView.View>
+                                            </ListView>
+                                        </ScrollViewer>
+                                    </materialDesign:Card>
+                                </Grid>
+
                             </Grid>
 
-                        </Grid>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Vertical" Width="245"   Background="LightCyan" >
 
-
-
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <materialDesign:Card Margin="10 10 10 10">
-                            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <ListView Name="FormOneView" ItemsSource="{Binding}" DataContext="{Binding allData}">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
-                                            <GridViewColumn Header="Ngày" DisplayMemberBinding="{Binding Ngay}"></GridViewColumn>
-                                            <GridViewColumn Header="Số bệnh nhân" DisplayMemberBinding="{Binding SoBenhNhan}"></GridViewColumn>
-                                            <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding DoanhThu}"></GridViewColumn>
-                                            <GridViewColumn Header="Tỉ lệ" DisplayMemberBinding="{Binding TiLe}"></GridViewColumn>
-
-                                        </GridView>
-                                    </ListView.View>
-                                </ListView>
-                            </ScrollViewer>
-                        </materialDesign:Card>
-                    </Grid>
+                                    <TextBlock Text="Sử Dụng Thuốc" HorizontalAlignment="Center"></TextBlock>
+                                    <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="Cube" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid Margin="0,0,0,450" >
+                                    <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">BÁO CÁO SỬ DỤNG THUỐC</TextBlock>
+                                </Grid>
+                                
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </TabItem>
             <TabItem>

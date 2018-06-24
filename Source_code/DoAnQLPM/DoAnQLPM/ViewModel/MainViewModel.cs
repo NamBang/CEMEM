@@ -78,9 +78,9 @@ namespace DoAnQLPM.ViewModel
             }
         }
         //Báo Cáo
-        private bool isOnClick = false;
-        private int _Thang;
-        public int Thang { get { return _Thang; } set { _Thang = value; OnPropertyChanged(); } }
+        private bool onClickDoanhThu = false;
+        private int _ThangDoanhThu;
+        public int ThangDoanhThu { get { return _ThangDoanhThu; } set { _ThangDoanhThu = value; OnPropertyChanged(); } }
 
         private DataView _allData;
         public DataView allData
@@ -96,9 +96,9 @@ namespace DoAnQLPM.ViewModel
             }
         }
 
-        public ICommand SelectionChangedCommandBaoCao { get; set; }
-        public ICommand ClickFindCommandBaoCao { get; set; }
-        public ICommand IsOnClick { get; set; }
+        public ICommand SelectionChangedCommandBaoCaoDoanhThu { get; set; }
+        public ICommand ClickFindCommandBaoCaoDoanhThu { get; set; }
+        public ICommand IsOnClickDoanhThu { get; set; }
         public MainViewModel()
         {
 
@@ -223,7 +223,7 @@ namespace DoAnQLPM.ViewModel
                 }
             });
 
-        ResetCommandBenhNhan = new RelayCommand<object>((p) =>
+            ResetCommandBenhNhan = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p) =>
@@ -271,7 +271,7 @@ namespace DoAnQLPM.ViewModel
             });
 
             //Báo Cáo
-            ClickFindCommandBaoCao = new RelayCommand<ListView>((p) =>
+            ClickFindCommandBaoCaoDoanhThu = new RelayCommand<ListView>((p) =>
             {
                 return true;
             }, (p) =>
@@ -283,7 +283,7 @@ namespace DoAnQLPM.ViewModel
                     conn.ConnectionString = ConnStr;
                     conn.Open();
                     SqlCommand command = new SqlCommand("[Sales by Month]", conn);
-                    command.Parameters.Add("@month", SqlDbType.Int).Value = _Thang + 1;
+                    command.Parameters.Add("@month", SqlDbType.Int).Value = _ThangDoanhThu + 1;
                     command.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter ad = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
@@ -291,20 +291,20 @@ namespace DoAnQLPM.ViewModel
                     allData = dt.DefaultView;
                 }
             });
-            IsOnClick = new RelayCommand<object>((p) =>
+            IsOnClickDoanhThu = new RelayCommand<object>((p) =>
             {
-                return isOnClick;
+                return onClickDoanhThu;
             }, (p) =>
             {
 
             } );
-            SelectionChangedCommandBaoCao = new RelayCommand<ComboBox>((p) =>
+            SelectionChangedCommandBaoCaoDoanhThu = new RelayCommand<ComboBox>((p) =>
             {
                 return true;
             }, (p) =>
             {
-                isOnClick = true;
-                _Thang = p.SelectedIndex;
+                onClickDoanhThu = true;
+                _ThangDoanhThu = p.SelectedIndex;
             } );
 
         }
