@@ -21,7 +21,7 @@
         
         Name="storeWindow"
         DataContext="{StaticResource CtrlBarView}"
-        Title="Kho thuốc" Height="300" Width="580">
+        Title="Kho thuốc" Height="500" Width="580">
     <i:Interaction.Triggers>
             <i:EventTrigger EventName="Loaded">
                 <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>

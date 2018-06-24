@@ -9,11 +9,10 @@ using System.Windows.Input;
 
 namespace DoAnQLPM.ViewModel
 {
-    class StoreViewModel : BaseViewModel
+    public class StoreViewModel : BaseViewModel
     {
-    
+        private ObservableCollection<Thuoc> _StoreList;
+        public ObservableCollection<Thuoc> StoreList { get { return _StoreList; } set { _StoreList = value; OnPropertyChanged(); } }
 
-
-        
-    }
+}
 }
