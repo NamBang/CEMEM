@@ -29,6 +29,8 @@ namespace DoAnQLPM.Model
         public virtual DbSet<CHITIETPKB> CHITIETPKBs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<PhieuKB> PhieuKBs { get; set; }
+        public virtual DbSet<QuyetDinh> QuyetDinhs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
     }

@@ -14,9 +14,11 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
-       DataContext="{StaticResource MainVM}">
+       DataContext="{StaticResource MainVM}" Loaded="mainWindow_Loaded" Activated="mainWindow_Activated" MouseEnter="mainWindow_MouseEnter">
 
-
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedViewConmand}" CommandParameter="{Binding ElementName=mainWindow }">
@@ -24,18 +26,16 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <TabControl >
+        <TabControl>
+
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical" Width="170" Height="50"  Background="LightCyan" >
                         <TextBlock  Margin="5 5 5 0" Text="Bệnh Nhân" HorizontalAlignment="Center" ></TextBlock>
                         <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="AccountMultiplePlus" />
-
-
                     </StackPanel>
                 </TabItem.Header>
-
-                <Grid >
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
@@ -48,46 +48,65 @@
                         <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">QUẢN LÝ BỆNH NHÂN</TextBlock>
                     </Grid>
                     <Grid Grid.Row="1" Margin="5 5 5 5">
-                        <Grid >
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition  Width="200" ></ColumnDefinition>
                                 <ColumnDefinition ></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-
-                                <TextBox x:Name="textBoxFind" Text="{Binding TimHoVaTen}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Nhập Họ tên bệnh nhân"  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="TextChanged">
-                                            <i:InvokeCommandAction Command="{Binding TextChangedCommandBenhNhan}"
-                                            CommandParameter="{Binding ElementName=textBoxFind}"
-                                            />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TextBox>
-
-
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <Button Command="{Binding IsOnCommandBenhNhan}"  Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đặt Lại" HorizontalAlignment="Left">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction Command="{Binding closeCommandBenhNhan}"
-                                            CommandParameter="{Binding ElementName=textBoxFind}"
-                                            />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </Button>
-                            </Grid>
+                            <DockPanel Grid.ColumnSpan="2" Margin="0,0,264,0">
+                                <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="344">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition
+                                                        Width="Auto" />
+                                                <ColumnDefinition
+                                                        Width="*" />
+                                                <ColumnDefinition
+                                                        Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                                <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                                            </Button>
+                                            <TextBox
+                                                        x:Name="textBoxFind"
+                                                        Text="{Binding TimHoVaTen}"
+                                                        Grid.Column="1"
+                                                        Margin="8 0 0 0"
+                                                        materialDesign:HintAssist.Hint="Nhập Họ tên tìm kiếm"
+                                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                                        BorderThickness="0"
+                                                        MinWidth="200"
+                                                        VerticalAlignment="Center">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="TextChanged">
+                                                        <i:InvokeCommandAction Command="{Binding TextChangedCommandBenhNhan}"
+                                                                CommandParameter="{Binding ElementName=textBoxFind}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </TextBox>
+                                            <Button Command="{Binding IsOnCommandBenhNhan}" Style="{DynamicResource MaterialDesignToolForegroundButton}" Grid.Column="2">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="Click">
+                                                        <i:InvokeCommandAction Command="{Binding closeCommandBenhNhan}"
+                                                            CommandParameter="{Binding ElementName=textBoxFind}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                                <materialDesign:PackIcon   Kind="CloseCircle" Opacity=".56" Margin="8 0 0 0" />
+                                            </Button>
+                                        </Grid>
+                                    </materialDesign:ColorZone>
+                                </StackPanel>
+                            </DockPanel>
                         </Grid>
-
                     </Grid>
 
                     <Grid Grid.Row="3" Margin="5 15 0 15">
                         <WrapPanel>
-                            <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ Và Tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới Tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                            <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm Sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <TextBox Text="{Binding DiaChi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa Chỉ"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox Text="{Binding HoVaTen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ tên"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboGioiTinh}" SelectedItem="{Binding GioiTinh, Mode=TwoWay}" materialDesign:HintAssist.Hint="Giới tính"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                            <TextBox Text="{Binding NamSinh}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Năm sinh"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox Text="{Binding DiaChi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa chỉ"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                             <Button Command="{Binding AddCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
                             <Button Command="{Binding DeleteCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
                             <Button Command="{Binding EditCommandBenhNhan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
@@ -100,24 +119,40 @@
                                 <ListView x:Name="DanhSachBenhNhan" ItemsSource="{Binding ListBenhNhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemBenhNhan,Mode=TwoWay}">
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding sttBenhnhan}"></GridViewColumn>
-                                            <GridViewColumn Header="Họ và Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
+                                            <GridViewColumn Header="Họ Tên" DisplayMemberBinding="{Binding HoVaTen}"></GridViewColumn>
                                             <GridViewColumn Header="Giới Tính" DisplayMemberBinding="{Binding GioiTinh }"></GridViewColumn>
                                             <GridViewColumn Header="Năm Sinh" DisplayMemberBinding="{Binding NamSinh}"></GridViewColumn>
                                             <GridViewColumn Header="Địa Chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
-                                            <GridViewColumn>
+                                            <GridViewColumn >
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
+                                                        <Button
+                                                            x:Name="btnLapPKB"
+                                                            Command="{Binding DataContext.LapPhieuKhamBenhCommand, ElementName=DanhSachBenhNhan }" CommandParameter="{Binding DataContext, ElementName=DanhSachBenhNhan}" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                            Content="Lập PKB" 
+                                                            Visibility="Hidden" />
 
-                                                        <Button Command="{Binding DataContext.LapPhieuKhamBenhCommand, ElementName=DanhSachBenhNhan }" CommandParameter="{Binding DataContext, ElementName=DanhSachBenhNhan}" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Lập PKB"></Button>
+                                                        <DataTemplate.Triggers>
+                                                            <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}" Value="True">
+                                                                <Setter TargetName="btnLapPKB" Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </DataTemplate.Triggers>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
                                             <GridViewColumn>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-
-                                                        <Button Command="{Binding ThanhToanCommand }"   Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thanh Toán"></Button>
+                                                        <Button
+                                                            x:Name="btnThanhToan"
+                                                            Command="{Binding DataContext.ThanhToanCommand, ElementName=DanhSachBenhNhan}" CommandParameter="{Binding DataContex, ElementName=DanhSachBenhNhan}"  Style="{StaticResource MaterialDesignRaisedButton}"
+                                                            Content="Thanh Toán"
+                                                            Visibility="Hidden" />
+                                                        <DataTemplate.Triggers>
+                                                            <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}" Value="True">
+                                                                <Setter TargetName="btnThanhToan" Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </DataTemplate.Triggers>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
@@ -128,19 +163,110 @@
                         </materialDesign:Card>
                     </Grid>
                 </Grid>
-
-
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <StackPanel Orientation="Vertical" Width="170"  Background="LightCyan" >
+                    <StackPanel Orientation="Vertical" Width="172"  Background="LightCyan" >
 
                         <TextBlock Text="Kho Thuốc" HorizontalAlignment="Center" ></TextBlock>
                         <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="HomeAssistant" />
                     </StackPanel>
                 </TabItem.Header>
-                
-                
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0"  Margin="5 5 15 15">
+                        <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">QUẢN LÝ KHO THUỐC</TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="5 5 5 5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="200" ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <DockPanel Grid.ColumnSpan="2" Margin="0,0,264,0">
+                                <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                                    <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="344">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition
+                                                        Width="Auto" />
+                                                <ColumnDefinition
+                                                        Width="*" />
+                                                <ColumnDefinition
+                                                        Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                                <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                                            </Button>
+                                            <TextBox
+                                                        x:Name="textBoxFindThuoc"
+                                                        Text="{Binding TimTenThuoc}"
+                                                        Grid.Column="1"
+                                                        Margin="8 0 0 0"
+                                                        materialDesign:HintAssist.Hint="Nhập Họ tên tìm kiếm"
+                                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                                        BorderThickness="0"
+                                                        MinWidth="200"
+                                                        VerticalAlignment="Center">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="TextChanged">
+                                                        <i:InvokeCommandAction Command="{Binding TextChangedCommandThuoc}"
+                                                                CommandParameter="{Binding ElementName=textBoxFindThuoc}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </TextBox>
+                                            <Button Command="{Binding IsOnCommandThuoc}" Style="{DynamicResource MaterialDesignToolForegroundButton}" Grid.Column="2">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="Click">
+                                                        <i:InvokeCommandAction Command="{Binding closeCommandThuoc}"
+                                                            CommandParameter="{Binding ElementName=textBoxFindThuoc}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                                <materialDesign:PackIcon   Kind="CloseCircle" Opacity=".56" Margin="8 0 0 0" />
+                                            </Button>
+                                        </Grid>
+                                    </materialDesign:ColorZone>
+                                </StackPanel>
+                            </DockPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="3" Margin="5 15 0 15">
+                        <WrapPanel>
+                            <TextBox Text="{Binding TenThuoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên Thuốc"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <ComboBox Margin="5 5 15 5" ItemsSource="{Binding comboDonVi}" SelectedItem="{Binding DonVi, Mode=TwoWay}" materialDesign:HintAssist.Hint="Đơn Vị"  IsEditable="false" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                            <TextBox Text="{Binding DonGia}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Đơn Giá"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <Button Command="{Binding AddCommandThuoc}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
+                            <Button Command="{Binding DeleteCommandThuoc}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
+                            <Button Command="{Binding EditCommandThuoc}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
+                            <Button Command="{Binding ResetCommandThuoc}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đặt Lại"/>
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <materialDesign:Card>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ListView x:Name="DanhSachThuoc" ItemsSource="{Binding ListThuoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemThuoc,Mode=TwoWay}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Tên Thuốc" DisplayMemberBinding="{Binding TenThuoc}"></GridViewColumn>
+                                            <GridViewColumn Header="Đơn Vị" DisplayMemberBinding="{Binding DonVi}"></GridViewColumn>
+                                            <GridViewColumn Header="Đơn Giá" DisplayMemberBinding="{Binding DonGia }"></GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </ScrollViewer>
+                        </materialDesign:Card>
+                    </Grid>
+
+                </Grid>
+
+
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -151,87 +277,199 @@
 
                     </StackPanel>
                 </TabItem.Header>
+
                 <Grid >
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" MinHeight="595"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                  
+
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0"  Margin="5 15 5 15">
-                        <TextBlock  VerticalAlignment="Center" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">Báo Cáo Doanh Thu</TextBlock>
-                    </Grid>
-                    <Grid Grid.Row="1"  Margin="5 5 15 15">
+                    <TabControl  TabStripPlacement="Left" Margin="0,0,-2,0" HorizontalAlignment="Left" Width="740" Height="511" VerticalAlignment="Top">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type TabItem}">
+                                <Setter Property="HeaderTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <ContentPresenter Content="{TemplateBinding Content }">
+                                                <ContentPresenter.LayoutTransform>
+                                                    <RotateTransform Angle="270">
+                                                    </RotateTransform>
+                                                </ContentPresenter.LayoutTransform>
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Padding" Value="4"/>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition ></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0" HorizontalAlignment="Right" Width="110">
-                                <materialDesign:Card Margin="5 5 0 5">
-                                    <ComboBox Name="combobox" ItemsSource="{Binding Thang}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                                        <ComboBoxItem Content="Một"></ComboBoxItem>
-                                        <ComboBoxItem Content="Hai"></ComboBoxItem>
-                                        <ComboBoxItem Content="Ba"></ComboBoxItem>
-                                        <ComboBoxItem Content="Bốn"></ComboBoxItem>
-                                        <ComboBoxItem Content="Năm"></ComboBoxItem>
-                                        <ComboBoxItem Content="Sáu"></ComboBoxItem>
-                                        <ComboBoxItem Content="Bảy"></ComboBoxItem>
-                                        <ComboBoxItem Content="Tám"></ComboBoxItem>
-                                        <ComboBoxItem Content="Chín"></ComboBoxItem>
-                                        <ComboBoxItem Content="Mười"></ComboBoxItem>
-                                        <ComboBoxItem Content="Mười Một"></ComboBoxItem>
-                                        <ComboBoxItem Content="Mười Hai"></ComboBoxItem>
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="SelectionChanged">
-                                                <i:InvokeCommandAction Command="{Binding SelectionChangedCommandBaoCao}"
-                                                 CommandParameter="{Binding ElementName=combobox}"
+                            </Style>
+                        </TabControl.Resources>
+                        <TabControl.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.001"/>
+                                <RotateTransform Angle="-0.065"/>
+                                <TranslateTransform X="0.005"/>
+                            </TransformGroup>
+                        </TabControl.RenderTransform>
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Vertical" Width="245"   Background="LightCyan" >
+
+                                    <TextBlock Text="Doanh Thu Theo Ngày" HorizontalAlignment="Center"></TextBlock>
+                                    <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="Cash100" />
+
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid Margin="0,0,0,450" >
+                                    <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">BÁO CÁO DOANH THU THEO NGÀY</TextBlock>
+                                </Grid>
+                                <Grid Margin="10,55,-10,387">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" HorizontalAlignment="Right" Width="110">
+                                            <materialDesign:Card Margin="5 5 0 5">
+                                                <ComboBox Name="comboboxDoanhThu" ItemsSource="{Binding ThangDoanhThu}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                    <ComboBoxItem Content="Một"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Hai"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Ba"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Bốn"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Năm"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Sáu"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Bảy"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Tám"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Chín"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười Một"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười Hai"></ComboBoxItem>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="SelectionChanged">
+                                                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommandBaoCaoDoanhThu}"
+                                                 CommandParameter="{Binding ElementName=comboboxDoanhThu}"
                                                  />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </ComboBox>
-                                </materialDesign:Card>
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <Button Command="{Binding IsOnClick}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction Command="{Binding ClickFindCommandBaoCao}"
-                                                       CommandParameter="{Binding ElementName=listView}"
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </ComboBox>
+                                            </materialDesign:Card>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Button Command="{Binding IsOnClickDoanhThu}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="Click">
+                                                        <i:InvokeCommandAction Command="{Binding ClickFindCommandBaoCaoDoanhThu}"
                                                         />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </Button>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Button>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+                                <Grid Margin="10,118,10,10">
+                                    <materialDesign:Card Margin="10 10 10 10">
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                            <ListView ItemsSource="{Binding}" DataContext="{Binding allData}">
+                                                <ListView.View>
+                                                    <GridView>
+                                                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                                        <GridViewColumn Header="Ngày" DisplayMemberBinding="{Binding Ngay}"></GridViewColumn>
+                                                        <GridViewColumn Header="Số bệnh nhân" DisplayMemberBinding="{Binding SoBenhNhan}"></GridViewColumn>
+                                                        <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding DoanhThu}"></GridViewColumn>
+                                                        <GridViewColumn Header="Tỉ lệ" DisplayMemberBinding="{Binding TiLe}"></GridViewColumn>
+                                                    </GridView>
+                                                </ListView.View>
+                                            </ListView>
+                                        </ScrollViewer>
+                                    </materialDesign:Card>
+                                </Grid>
+
                             </Grid>
 
-                        </Grid>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Vertical" Width="245"   Background="LightCyan" >
 
+                                    <TextBlock Text="Sử Dụng Thuốc" HorizontalAlignment="Center"></TextBlock>
+                                    <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="MedicalBag" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid Margin="0,0,0,450" >
+                                    <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">BÁO CÁO SỬ DỤNG THUỐC</TextBlock>
+                                </Grid>
 
+                                <Grid Margin="10,55,-10,387">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" HorizontalAlignment="Right" Width="110">
+                                            <materialDesign:Card Margin="5 5 0 5">
+                                                <ComboBox Name="comboboxSDThuoc" ItemsSource="{Binding ThangSDThuoc}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Tháng" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                    <ComboBoxItem Content="Một"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Hai"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Ba"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Bốn"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Năm"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Sáu"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Bảy"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Tám"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Chín"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười Một"></ComboBoxItem>
+                                                    <ComboBoxItem Content="Mười Hai"></ComboBoxItem>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="SelectionChanged">
+                                                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommandBaoCaoSDThuoc}"
+                                                 CommandParameter="{Binding ElementName=comboboxSDThuoc}"
+                                                 />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </ComboBox>
+                                            </materialDesign:Card>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Button Command="{Binding IsOnClickSDThuoc}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}"  Height="40"  Width="70"    ToolTip="Resource name: MaterialDesignRaisedButton" Content="TÌM" HorizontalAlignment="Left"  >
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="Click">
+                                                        <i:InvokeCommandAction Command="{Binding ClickFindCommandBaoCaoSDThuoc}"
+                                                        />
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Button>
+                                        </Grid>
 
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <materialDesign:Card Margin="10 10 10 10">
-                            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <ListView Name="FormOneView" ItemsSource="{Binding}" DataContext="{Binding allData}">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
-                                            <GridViewColumn Header="Ngày" DisplayMemberBinding="{Binding Ngay}"></GridViewColumn>
-                                            <GridViewColumn Header="Số bệnh nhân" DisplayMemberBinding="{Binding SoBenhNhan}"></GridViewColumn>
-                                            <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding DoanhThu}"></GridViewColumn>
-                                            <GridViewColumn Header="Tỉ lệ" DisplayMemberBinding="{Binding TiLe}"></GridViewColumn>
-
-                                        </GridView>
-                                    </ListView.View>
-                                </ListView>
-                            </ScrollViewer>
-                        </materialDesign:Card>
-                    </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid Margin="10,118,10,10">
+                                    <materialDesign:Card Margin="10 10 10 10">
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                            <ListView ItemsSource="{Binding}" DataContext="{Binding allDataSDThuoc}">
+                                                <ListView.View>
+                                                    <GridView>
+                                                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                                        <GridViewColumn Header="Tên Thuốc" DisplayMemberBinding="{Binding TenThuoc}"></GridViewColumn>
+                                                        <GridViewColumn Header="Đơn Vị" DisplayMemberBinding="{Binding DonVi}"></GridViewColumn>
+                                                        <GridViewColumn Header="Số Lượng" DisplayMemberBinding="{Binding SoLuong}"></GridViewColumn>
+                                                        <GridViewColumn Header="Số Lượng Dùng" DisplayMemberBinding="{Binding SLDung}"></GridViewColumn>
+                                                    </GridView>
+                                                </ListView.View>
+                                            </ListView>
+                                        </ScrollViewer>
+                                    </materialDesign:Card>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </TabItem>
-            <TabItem>
+            <TabItem >
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical" Width="170"  Background="LightCyan" >
 
@@ -239,6 +477,233 @@
                         <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="30"  Kind="Fan" />
                     </StackPanel>
                 </TabItem.Header>
+                <TabControl Name="tabControlSetting" TabStripPlacement="Left" Margin="0,0,-2,0" HorizontalAlignment="Left" Width="740" Height="511" VerticalAlignment="Top" SelectionChanged="TabControl_SelectionChanged">
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="HeaderTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <ContentPresenter Content="{TemplateBinding Content }">
+                                            <ContentPresenter.LayoutTransform>
+                                                <RotateTransform Angle="270">
+                                                </RotateTransform>
+                                            </ContentPresenter.LayoutTransform>
+                                        </ContentPresenter>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Padding" Value="4"/>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabControl.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0.001"/>
+                            <RotateTransform Angle="-0.065"/>
+                            <TranslateTransform X="0.005"/>
+                        </TransformGroup>
+                    </TabControl.RenderTransform>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="163"   Background="LightCyan" >
+
+                                <TextBlock Text="Giới Thiệu" HorizontalAlignment="Center"></TextBlock>
+                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="Information" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid Margin="0,0,0,450" >
+                                <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">THÔNG TIN TÀI KHOẢN</TextBlock>
+                            </Grid>
+
+                            <Grid Margin="10,60,10,10">
+                                <Grid Margin="215,10,216,138">
+                                    <materialDesign:Flipper Margin="10,3,0,0">
+                                        <materialDesign:Flipper.FrontContent>
+                                            <Grid Height="256" Width="200">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="160"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
+                                                    <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                </materialDesign:ColorZone>
+                                                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <TextBlock Name="labelLoaiTK" HorizontalAlignment="Center" ></TextBlock>
+                                                    <TextBlock Name="labelTenHienThi"  HorizontalAlignment="Center"></TextBlock>
+                                                    <Button Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
+                                                        Thay đổi thông tin
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </materialDesign:Flipper.FrontContent>
+                                        <materialDesign:Flipper.BackContent>
+                                            <Grid Height="256" Width="200">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                                            <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right"/>
+                                                        </Button>
+                                                        <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">
+											                Thay Đổi Thông Tin
+                                                        </TextBlock>
+                                                    </StackPanel>
+                                                </materialDesign:ColorZone>
+                                                <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBox Text="{Binding TenThayDoi }" materialDesign:HintAssist.Hint="Nhập Tên Hiển Thị"></TextBox>
+                                                    <TextBox Grid.Row="1" Text="{Binding MatKhauThayDoi }" materialDesign:HintAssist.Hint="Nhập mật khẩu"></TextBox>
+                                                    <Button Grid.Row="2" Command="{Binding ThayDoiThongTin}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thay Đổi">
+                                                        
+                                                    </Button>
+                                                </Grid>
+                                            </Grid>
+                                        </materialDesign:Flipper.BackContent>
+                                    </materialDesign:Flipper>
+                                </Grid>
+                                <Grid Margin="200,405,-200,-255">
+                                    <Grid Margin="156,0,0,0">
+                                        <TextBlock Text="Liên hệ nhóm phát triển: "/>
+                                    </Grid>
+                                    <Grid Margin="392,0,0,0">
+                                        <TextBlock>           
+                                            <Hyperlink   Name="hyper" NavigateUri="https://github.com/NamBang/SE104_I23_Nhom_4_CEMEN_QLPMT" RequestNavigate="Hyperlink_RequestNavigate">
+                                                Click here
+                                            </Hyperlink>
+                                        </TextBlock>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                    </TabItem>
+                    <TabItem Name="TaiKhoan">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="163"   Background="LightCyan" >
+
+                                <TextBlock Text="Tài Khoản" HorizontalAlignment="Center"></TextBlock>
+                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="AccountEdit" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid Margin="0,0,0,450" >
+                                <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">QUẢN LÝ TÀI KHOẢN</TextBlock>
+                            </Grid>
+                            <Grid Margin="10,91,10,368">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="200" ></ColumnDefinition>
+                                        <ColumnDefinition ></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <DockPanel Grid.ColumnSpan="2" Margin="0,0,264,0">
+                                        <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                                            <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="344">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition
+                                                        Width="Auto" />
+                                                        <ColumnDefinition
+                                                        Width="*" />
+                                                        <ColumnDefinition
+                                                        Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                                        <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                                                    </Button>
+                                                    <TextBox
+                                                        x:Name="textBoxFindTaiKhoan"
+                                                        Text="{Binding TimTenTaiKhoan}"
+                                                        Grid.Column="1"
+                                                        Margin="8 0 0 0"
+                                                        materialDesign:HintAssist.Hint="Nhập Họ tên tìm kiếm"
+                                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                                        BorderThickness="0"
+                                                        MinWidth="200"
+                                                        VerticalAlignment="Center">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="TextChanged">
+                                                                <i:InvokeCommandAction Command="{Binding TextChangedCommandTaiKhoan}"
+                                                                CommandParameter="{Binding ElementName=textBoxFindTaiKhoan}"/>
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                    </TextBox>
+                                                    <Button Command="{Binding IsOnCommandTaiKhoan}" Style="{DynamicResource MaterialDesignToolForegroundButton}" Grid.Column="2">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="Click">
+                                                                <i:InvokeCommandAction Command="{Binding closeCommandTaiKhoan}"
+                                                            CommandParameter="{Binding ElementName=textBoxFindTaiKhoan}"/>
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                        <materialDesign:PackIcon   Kind="CloseCircle" Opacity=".56" Margin="8 0 0 0" />
+                                                    </Button>
+                                                </Grid>
+                                            </materialDesign:ColorZone>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Grid>
+                            </Grid>
+                            <Grid Margin="10,172,10,286">
+                                <WrapPanel>
+                                    <TextBox Text="{Binding username}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tài khoản"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding tenhienthi}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên hiển thị"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding password}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mật khẩu"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                                    <Button Command="{Binding AddCommandTaiKhoan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thêm"/>
+                                    <Button Command="{Binding DeleteCommandTaiKhoan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Xóa"/>
+                                    <Button Command="{Binding EditCommandTaiKhoan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Sửa"/>
+                                    <Button Command="{Binding ResetCommandTaiKhoan}" Margin="5 5 5 5" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đặt Lại"/>
+                                </WrapPanel>
+                            </Grid>
+                            <Grid Margin="10,224,10,10">
+                                <materialDesign:Card>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <ListView x:Name="DanhSachTaiKhoan" HorizontalAlignment="Stretch" ItemsSource="{Binding ListTaiKhoan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemTaiKhoan,Mode=TwoWay}">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Tài khoản" DisplayMemberBinding="{Binding username}"></GridViewColumn>
+                                                    <GridViewColumn Header="Tên Hiển Thị" DisplayMemberBinding="{Binding tenhienthi}"></GridViewColumn>
+                                                    <GridViewColumn Header="Mật Khẩu" DisplayMemberBinding="{Binding password}"></GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </ScrollViewer>
+                                </materialDesign:Card>
+                            </Grid>
+                        </Grid>
+
+                    </TabItem>
+                    <TabItem Name="QuyetDinh">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="163"   Background="LightCyan" >
+
+                                <TextBlock Text="Quyết Định" HorizontalAlignment="Center"></TextBlock>
+                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="30" Height="20"  Kind="Delete" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid Grid.Row="0">
+                                <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">THAY ĐỔI QUYẾT ĐỊNH</TextBlock>
+                            </Grid>
+                            <Grid Margin="0,69,0,0">
+                                <Label x:Name="label" Content="Số Bệnh Nhân Tối Đa Trong Ngày: " HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="214"/>
+                                <Label x:Name="label1" Content="Tiền Khám" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="soBenhNhan" HorizontalAlignment="Left" Height="35" Margin="458,45,0,0" TextWrapping="Wrap" Text="{Binding BenhNhanToiDa}" VerticalAlignment="Top" Width="129"/>
+                                <TextBox x:Name="tienKham" HorizontalAlignment="Left" Height="34" Margin="458,96,0,0" TextWrapping="Wrap" Text="{Binding TienKham}" VerticalAlignment="Top" Width="129"/>
+                                <Button x:Name="button" Content="Thay Đổi" HorizontalAlignment="Left" Margin="307,191,0,0" VerticalAlignment="Top" Width="90" Click="button_Click"/>
+
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
             </TabItem>
         </TabControl>
     </Grid>

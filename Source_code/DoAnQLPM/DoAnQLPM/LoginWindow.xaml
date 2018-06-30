@@ -45,15 +45,17 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <TextBox Text="{Binding TaiKhoan }" materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding TaiKhoan }" materialDesign:HintAssist.Hint="Tên đăng nhập"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </Grid>
                 <Grid Grid.Row="1">
                     <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint="Mật khẩu"
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
-                                CommandParameter="{Binding ElementName=FloatingPasswordBox}"
+                                <i:InvokeCommandAction
+                                    Command="{Binding PasswordChangedCommand}" 
+                                    CommandParameter="{Binding ElementName=FloatingPasswordBox}"
                                 />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

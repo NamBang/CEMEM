@@ -23,5 +23,15 @@ namespace DoAnQLPM
         {
             InitializeComponent();
         }
+
+        private void abcdádasdsadsadsa_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void DockPanel_MouseLeave(object sender, MouseEventArgs e)
+        {
+           
+        }
     }
 }

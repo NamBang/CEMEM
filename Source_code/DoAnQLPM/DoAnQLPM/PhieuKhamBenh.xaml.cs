@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,15 @@ namespace DoAnQLPM
     /// </summary>
     public partial class PhieuKhamBenh : Window
     {
+        public static int MaPhieuKhamIndex;
         public PhieuKhamBenh()
         {
             InitializeComponent();
+        }
+        
+        private void DanhSachChiTietPK_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            MaPhieuKhamIndex = DanhSachChiTietPKB.SelectedIndex;
         }
     }
 }

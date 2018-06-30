@@ -5,6 +5,8 @@
     <EntitySet Name="CHITIETPKBs" EntityType="QLPM4Model.CHITIETPKB" />
     <EntitySet Name="HoaDons" EntityType="QLPM4Model.HoaDon" />
     <EntitySet Name="PhieuKBs" EntityType="QLPM4Model.PhieuKB" />
+    <EntitySet Name="QuyetDinhs" EntityType="QLPM4Model.QuyetDinh" />
+    <EntitySet Name="sysdiagrams" EntityType="QLPM4Model.sysdiagram" />
     <EntitySet Name="TaiKhoans" EntityType="QLPM4Model.TaiKhoan" />
     <EntitySet Name="Thuocs" EntityType="QLPM4Model.Thuoc" />
     <AssociationSet Name="FK1" Association="QLPM4Model.FK1">
@@ -70,6 +72,24 @@
     <NavigationProperty Name="BenhNhan" Relationship="QLPM4Model.FK1" FromRole="PhieuKB" ToRole="BenhNhan" />
     <NavigationProperty Name="CHITIETPKBs" Relationship="QLPM4Model.FK2" FromRole="PhieuKB" ToRole="CHITIETPKB" />
     <NavigationProperty Name="HoaDons" Relationship="QLPM4Model.FK4" FromRole="PhieuKB" ToRole="HoaDon" />
+  </EntityType>
+  <EntityType Name="QuyetDinh">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SLBenhNhan" Type="Int32" Nullable="false" />
+    <Property Name="TienKham" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>

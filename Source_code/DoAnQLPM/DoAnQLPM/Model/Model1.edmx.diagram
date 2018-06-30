@@ -9,7 +9,9 @@
         <EntityTypeShape EntityType="QLPM4Model.CHITIETPKB" Width="1.5" PointX="5.25" PointY="2.5" />
         <EntityTypeShape EntityType="QLPM4Model.HoaDon" Width="1.5" PointX="5.25" PointY="5.75" />
         <EntityTypeShape EntityType="QLPM4Model.PhieuKB" Width="1.5" PointX="3" PointY="2.5" />
-        <EntityTypeShape EntityType="QLPM4Model.TaiKhoan" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLPM4Model.QuyetDinh" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLPM4Model.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="QLPM4Model.TaiKhoan" Width="1.5" PointX="7.75" PointY="6.75" />
         <EntityTypeShape EntityType="QLPM4Model.Thuoc" Width="1.5" PointX="3" PointY="7.75" />
         <AssociationConnector Association="QLPM4Model.FK1" />
         <AssociationConnector Association="QLPM4Model.FK2" />

@@ -11,9 +11,6 @@ namespace DoAnQLPM.ViewModel
 {
     class StoreViewModel : BaseViewModel
     {
-    
-
-
         
     }
 }

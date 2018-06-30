@@ -1,8 +1,8 @@
 ﻿<Window x:Class="DoAnQLPM.BillWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BillWindow" Height="400" Width="300"
-        
+        Title="BillWindow" Height="650" Width="750"
+           xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -12,46 +12,142 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
+        WindowStartupLocation ="CenterScreen"
+        DataContext="{StaticResource BillVM}" Loaded="Window_Loaded"
         >
-    <materialDesign:Card>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ClosedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
         <Grid>
+            <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">HÓA ĐƠN THANH TOÁN</TextBlock>
+        </Grid>
+        <Grid>
+            <materialDesign:Card Width="200" HorizontalAlignment="Left" Height="540" Margin="10,28,0,0" MouseDown="Card_MouseDown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto" ></RowDefinition>
+                        <RowDefinition Height="auto" ></RowDefinition>
+                        <RowDefinition Height="auto" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="20 10 20 5" >
+                        <TextBlock VerticalAlignment="Center"  Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center"> Tạm Tính</TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" >
+                        <materialDesign:Card Margin="5 5 5 5">
+                            <ComboBox Name="comboboxNgayKham" ItemsSource="{Binding ComboBoxNgayKham}" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Ngày Khám Bệnh" MinWidth="12" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="comboboxNgayKham_SelectionChanged" DataContextChanged="comboboxNgayKham_DataContextChanged">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SelectionChangedCommandNgayKham}"
+                                                     CommandParameter="{Binding ElementName=comboboxNgayKham}"
+                                                     />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </materialDesign:Card>
+                    </Grid>
+                    <Grid Grid.Row="2" >
+                        <materialDesign:Card Margin="5 5 5 5">
+                            <TextBox IsReadOnly="True" Text="{Binding HoVaTenTamTinh}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Họ và Tên:" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        </materialDesign:Card>
+                    </Grid>
+                    <Grid Grid.Row="3" >
+                        <materialDesign:Card Margin="5 5 5 5">
+                            <TextBox Name="TienKham" IsReadOnly="True" Text="{Binding TienKhamTamTinh}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tiền Khám: " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+                        </materialDesign:Card>
+                    </Grid>
+                    <Grid Grid.Row="4" >
+                        <materialDesign:Card Margin="5 5 5 5">
+                            <TextBox Name="TienThuoc" IsReadOnly="True" Text="{Binding TienThuocTamTinh}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tiền Thuốc: " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+                        </materialDesign:Card>
+                    </Grid>
+                    <Grid Grid.Row="5" >
+                        <materialDesign:Card Margin="5 5 5 5">
+                            <TextBox Name="PhuThu" Text="{Binding PhuThuTamTinh}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Phụ Thu: " Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="PhuThu_TextChanged">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding TextChangedCommandPhuThu}"
+                                            CommandParameter="{Binding ElementName=PhuThu}"
+                                            />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </materialDesign:Card>
+                    </Grid>
+                    <Grid Grid.Row="6" >
+                        <materialDesign:Card Margin="5 5 5 5">
+                            <TextBox Name="TongTien" IsReadOnly="True" Text="{Binding TongTienTamTinh}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tổng Tiền: " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+                        </materialDesign:Card>
+                    </Grid>
+                    <Grid Grid.Row="7" Margin="5 5 5 5">
+                        <Button  Name ="buttonThanhToan" HorizontalAlignment="Center"   Style="{StaticResource MaterialDesignRaisedButton}"  ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thanh toán"  Margin="5,0,0,0" Click="Button_Click"  >
+                            <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding ThanhToanCommand}"
+                                                       CommandParameter="comboboxNgayKham"/>
+                            </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </Grid>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto" ></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="20 10 20 5" >
-                <TextBlock VerticalAlignment="Center"  Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center"> Hóa đơn</TextBlock>
-            </Grid>
-            <Grid Grid.Row="1" >
-                <materialDesign:Card Margin="5 5 5 5">
-                    <TextBox  Text="{Binding NgayKham}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Ngày Khám: " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />   </materialDesign:Card>
-            </Grid>
-            <Grid Grid.Row="2" >
-                <materialDesign:Card Margin="5 5 5 5">
-                    <TextBox Text="{Binding HoVaTen}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Họ và Tên:" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-                </materialDesign:Card>
-            </Grid>
-            <Grid Grid.Row="3" >
-                <materialDesign:Card Margin="5 5 5 5">
-                    <TextBox Text="{Binding TienKham}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tiền Khám: " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-                </materialDesign:Card>
-            </Grid>
-            <Grid Grid.Row="4" >
-                <materialDesign:Card Margin="5 5 5 5">
-                    <TextBox Text="{Binding TienThuoc}" Margin="5 5 5 5" materialDesign:HintAssist.Hint="Tiền Thuốc: " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-                </materialDesign:Card>
-            </Grid>
-            <Grid Grid.Row="5" Margin="5 5 5 5">
-                <Button HorizontalAlignment="Center"   Style="{StaticResource MaterialDesignRaisedButton}"      ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thanh toán"  Margin="5,0,0,0"  >
-                </Button>
-            </Grid>
 
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Margin="222,54,10,512">
+            <TextBlock  Margin="10" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">Thống Kê Thuốc</TextBlock>
+        </Grid>
+        <Grid Margin="222,123,0,294">
+            <materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView Name="ListViewThuoc" ItemsSource="{Binding}" DataContext="{Binding allThongKeThuoc}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                <GridViewColumn Header="Tên Thuốc" DisplayMemberBinding="{Binding TenThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Đơn Giá" DisplayMemberBinding="{Binding DonGia }"></GridViewColumn>
+                                <GridViewColumn Header="Số Lượng Thuốc" DisplayMemberBinding="{Binding SLThuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Thành Tiền" DisplayMemberBinding="{Binding Tien}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
 
         </Grid>
-    </materialDesign:Card>
+        <Grid Margin="222,268,0,318">
+            <TextBlock  Margin="122,92,113,-72" Style="{StaticResource MaterialDesignDisplay1TextBlock}" Foreground="#DD0F0E0E" HorizontalAlignment="Center">Thống Kê Hóa Đơn</TextBlock>
+        </Grid>
+        <Grid Margin="222,417,0,36">
+            <materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView Name="ListViewHoaDon"  ItemsSource="{Binding}" DataContext="{Binding allThongKeHoaDon}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày Khám" DisplayMemberBinding="{Binding NgayKham}"></GridViewColumn>
+                                <GridViewColumn Header="Tiền Khám" DisplayMemberBinding="{Binding TienKham}"></GridViewColumn>
+                                <GridViewColumn Header="Tiền Thuốc" DisplayMemberBinding="{Binding TienThuoc }"></GridViewColumn>
+                                <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding TongTien}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
 </Window>
