@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLPM4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLPM4Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BenhNhans" EntityType="QLPM4Model.BenhNhan" />
+    <EntitySet Name="CHITIETPKBs" EntityType="QLPM4Model.CHITIETPKB" />
+    <EntitySet Name="HoaDons" EntityType="QLPM4Model.HoaDon" />
+    <EntitySet Name="PhieuKBs" EntityType="QLPM4Model.PhieuKB" />
+    <EntitySet Name="TaiKhoans" EntityType="QLPM4Model.TaiKhoan" />
+    <EntitySet Name="Thuocs" EntityType="QLPM4Model.Thuoc" />
+    <EntitySet Name="QuyetDinhs" EntityType="QLPM4Model.QuyetDinh" />
+    <AssociationSet Name="FK1" Association="QLPM4Model.FK1">
+      <End Role="BenhNhan" EntitySet="BenhNhans" />
+      <End Role="PhieuKB" EntitySet="PhieuKBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK2" Association="QLPM4Model.FK2">
+      <End Role="PhieuKB" EntitySet="PhieuKBs" />
+      <End Role="CHITIETPKB" EntitySet="CHITIETPKBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK3" Association="QLPM4Model.FK3">
+      <End Role="Thuoc" EntitySet="Thuocs" />
+      <End Role="CHITIETPKB" EntitySet="CHITIETPKBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK4" Association="QLPM4Model.FK4">
+      <End Role="PhieuKB" EntitySet="PhieuKBs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BenhNhan">
+    <Key>
+      <PropertyRef Name="MaBN" />
+    </Key>
+    <Property Name="MaBN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoVaTen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinh" Type="Int32" Nullable="false" />
+    <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhieuKBs" Relationship="QLPM4Model.FK1" FromRole="BenhNhan" ToRole="PhieuKB" />
+  </EntityType>
+  <EntityType Name="CHITIETPKB">
+    <Key>
+      <PropertyRef Name="MaCTPKB" />
+    </Key>
+    <Property Name="MaCTPKB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPKB" Type="Int32" Nullable="false" />
+    <Property Name="MaThuoc" Type="Int32" Nullable="false" />
+    <Property Name="SLThuoc" Type="Int32" Nullable="false" />
+    <Property Name="CachDung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhieuKB" Relationship="QLPM4Model.FK2" FromRole="CHITIETPKB" ToRole="PhieuKB" />
+    <NavigationProperty Name="Thuoc" Relationship="QLPM4Model.FK3" FromRole="CHITIETPKB" ToRole="Thuoc" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPKB" Type="Int32" Nullable="false" />
+    <Property Name="TienKham" Type="Double" Nullable="false" />
+    <Property Name="TienThuoc" Type="Double" Nullable="false" />
+    <Property Name="TongTien" Type="Double" Nullable="false" />
+    <NavigationProperty Name="PhieuKB" Relationship="QLPM4Model.FK4" FromRole="HoaDon" ToRole="PhieuKB" />
+  </EntityType>
+  <EntityType Name="PhieuKB">
+    <Key>
+      <PropertyRef Name="MaPKB" />
+    </Key>
+    <Property Name="MaPKB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaBN" Type="Int32" Nullable="false" />
+    <Property Name="LoaiBenh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrieuChung" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgayKham" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="BenhNhan" Relationship="QLPM4Model.FK1" FromRole="PhieuKB" ToRole="BenhNhan" />
+    <NavigationProperty Name="CHITIETPKBs" Relationship="QLPM4Model.FK2" FromRole="PhieuKB" ToRole="CHITIETPKB" />
+    <NavigationProperty Name="HoaDons" Relationship="QLPM4Model.FK4" FromRole="PhieuKB" ToRole="HoaDon" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tenhienthi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TYPE" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Thuoc">
+    <Key>
+      <PropertyRef Name="MaThuoc" />
+    </Key>
+    <Property Name="MaThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenThuoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonVi" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CHITIETPKBs" Relationship="QLPM4Model.FK3" FromRole="Thuoc" ToRole="CHITIETPKB" />
+  </EntityType>
+  <EntityType Name="QuyetDinh">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="SLBenhNhan" />
+      <PropertyRef Name="TienKham" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SLBenhNhan" Type="Int32" Nullable="false" />
+    <Property Name="TienKham" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK1">
+    <End Type="QLPM4Model.BenhNhan" Role="BenhNhan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BenhNhan">
+        <PropertyRef Name="MaBN" />
+      </Principal>
+      <Dependent Role="PhieuKB">
+        <PropertyRef Name="MaBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2">
+    <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QLPM4Model.CHITIETPKB" Role="CHITIETPKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuKB">
+        <PropertyRef Name="MaPKB" />
+      </Principal>
+      <Dependent Role="CHITIETPKB">
+        <PropertyRef Name="MaPKB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK3">
+    <End Type="QLPM4Model.Thuoc" Role="Thuoc" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QLPM4Model.CHITIETPKB" Role="CHITIETPKB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thuoc">
+        <PropertyRef Name="MaThuoc" />
+      </Principal>
+      <Dependent Role="CHITIETPKB">
+        <PropertyRef Name="MaThuoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK4">
+    <End Type="QLPM4Model.PhieuKB" Role="PhieuKB" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QLPM4Model.HoaDon" Role="HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuKB">
+        <PropertyRef Name="MaPKB" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaPKB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
