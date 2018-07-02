@@ -54,7 +54,6 @@ namespace DoAnQLPM.ViewModel
         public ICommand DeleteThuocCommand { get; set; }
         public ICommand AddPKBCommand { get; set; }
         public ICommand LoadedCommand { get; set; }
-        public ICommand hehehehe { get; set; }
 
         public ICommand SelectionChangedCommandThuoc { get; set; }
         private bool isThemCTPKB;
@@ -201,15 +200,6 @@ namespace DoAnQLPM.ViewModel
                 }
 
             });
-
-            hehehehe = new RelayCommand<object>((p) =>
-            {
-                return true;
-            }, (p) =>
-             {
-                 MessageBox.Show("sadasdsa");
-             }
-            );
 
             DeleteThuocCommand = new RelayCommand<object>((p) =>
             {

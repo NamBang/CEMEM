@@ -38,3 +38,4 @@ F:\Code\Visual Studio 2015\DoAnQLPM\DoAnQLPM\obj\Release\DoAnQLPM.csproj.Generat
 F:\Code\Visual Studio 2015\DoAnQLPM\DoAnQLPM\obj\Release\DoAnQLPM.exe.licenses
 F:\Code\Visual Studio 2015\DoAnQLPM\DoAnQLPM\obj\Release\DoAnQLPM.exe
 F:\Code\Visual Studio 2015\DoAnQLPM\DoAnQLPM\obj\Release\DoAnQLPM.pdb
+F:\Code\Visual Studio 2015\DoAnQLPM\DoAnQLPM\obj\Release\DoAnQLPM.csprojResolveAssemblyReference.cache

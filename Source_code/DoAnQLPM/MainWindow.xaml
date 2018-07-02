@@ -5,7 +5,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         
      xmlns:ControlBar="clr-namespace:DoAnQLPM.ControlBar" x:Class="DoAnQLPM.MainWindow"
-        Title="Phần Mềm Quản Lý Phòng Mạch Tư" Height="600" Width="750"
+        Title="Quản Lý Phòng Mạch CEEM" Height="600" Width="750"
         WindowStartupLocation="CenterScreen"
         x:Name="mainWindow"
         xmlns:uc ="clr-namespace:DoAnQLPM.ControlBar"

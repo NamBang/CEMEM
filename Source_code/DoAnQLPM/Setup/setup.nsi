@@ -1,5 +1,5 @@
 ; Main constants - define following constants as you want them displayed in your installation wizard
-!define PRODUCT_NAME "DoAnQLPM"
+!define PRODUCT_NAME "PhongMachCEEM"
 !define PRODUCT_VERSION "1.00"
 !define PRODUCT_PUBLISHER "UIT"
 !define PRODUCT_WEB_SITE "https://github.com/NamBang/SE104_I23_Nhom_4_CEMEN_QLPMT"
@@ -81,7 +81,7 @@ Section "MainSection"
   ;Create shortcuts
   ;SetOutPath "$SMPROGRAMS"
   CreateDirectory "$SMPROGRAMS\DoAnQLPM"
-  CreateShortCut "$SMPROGRAMS\DoAnQLPM\DoAnQLPM.lnk" "$INSTDIR\DoAnQLPM.exe" "" "$INSTDIR\DoAnQLPM.exe"
+  CreateShortCut "$SMPROGRAMS\DoAnQLPM\PhongMachCEEM.lnk" "$INSTDIR\DoAnQLPM.exe" "" "$INSTDIR\DoAnQLPM.exe"
   CreateShortCut "$SMPROGRAMS\DoAnQLPM\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
 
